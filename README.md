@@ -6,4 +6,4 @@
 
 Some useful little functions for C/C++.
 
-<a href="html/index.html">Check out the docs!</a>
+<a href="html/index.html](https://yung-turabian.github.io/xtralib/html/index.html">Check out the docs!</a>
