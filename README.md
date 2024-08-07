@@ -8,4 +8,4 @@ Some useful little functions for C/C++.
 
 # Docs
 
-(https://yung-turabian.github.io/xtralib/doxygen/html/)[View them here]
+(View them here)[https://yung-turabian.github.io/xtralib/doxygen/html/]
