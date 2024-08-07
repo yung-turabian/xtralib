@@ -2,8 +2,9 @@
  * @file string.h
  * @author yung-turabian
  * @date 4 8 2024
- * @brief Functions and types for xtra/string.
- *
+ * @brief New functions and types related to string and string manipulation.
+ * 
+ * @copyright BSD-3-Clause
  */
 
 
@@ -21,45 +22,35 @@
 extern "C" {
 #endif
 
-typedef uint64_t u64;
-typedef int64_t  s64;
-
-typedef int_fast64_t fs64;
-
-
-#define CSTRING_SLICE_TYPE(TYPE)   \
-		struct									       \
-		{												       \
-				s64  len;                  \
-				TYPE *buf;						     \
+#define CSTRING_SLICE_TYPE(TYPE) \
+		struct	\
+		{	\
+				unsigned long long  len; \
+				TYPE *buf; \
 		}
 typedef CSTRING_SLICE_TYPE(char) slice;
 
 #define CSTRING_SLICE_INIT(BUF, LEN) \
-		{ 															 \
-				.buf = (BUF), .len = (LEN)   \
+		{ \
+				.buf = (BUF), .len = (LEN) \
 		}
 
 
 /** @struct
  * @brief An new revision of the string.
- *
- *
- *
  */
 typedef struct xstring {
 		char *ptr;
-		u64 len;
+		unsigned long long len;
 } xstring;
 
 
 /**
  * @brief Implmentation of 'strdup'.
- *
- * @return Copy of string or NULL if something went wrong.
+ * @return copy of string or NULL if something went wrong.
  */
-char
-*strdup(const char *str)
+char *
+strdup(const char *str)
 {
 		size_t len = 1 + strlen(str);
 		char *p = (char*)malloc(len);
@@ -67,13 +58,13 @@ char
 		return p ? strncpy(p, str, len) : NULL;
 }
 
-/** 
- * @brief Checks if string covers all of charset, will not care
- * if a character not present in charset is found.
- * @return Returns string on success or NULL on failure.
+/**
+ * @brief Checks if string covers all of charset.
+ * @warning will not care if a character not present in the charset is found.
+ * @return string on success or NULL on failure.
  */
-char
-*strcov(char *str, const char *charset)
+char *
+strcov(char *str, const char *charset)
 {
 		int req = strlen(charset);
 		int count = 0;
@@ -101,12 +92,12 @@ char
 }
 
 
-/** @fn char* strpcat(char *dest, const char *src, size_t pos)
- * @brief concatenate but at a give 'p' position
- * @return Returns the 'dest' string.
+/**
+ * @brief concatenate but at a give 'p' position.
+ * @return `dest` string.
  */
-char
-*strpcat(char *dest, const char *src, size_t pos)
+char *
+strpcat(char *dest, const char *src, size_t pos)
 {
 		size_t i = 0;
 		for(; i < strlen(src); i++)
@@ -120,9 +111,11 @@ char
 }
 
 /**
- * @brief concat a char on to the end of a string
+ * @brief Concatenate a char on to the end of a string.
+ * @return `dest` string
  */
-char *chrcat(char *dest, const char src) 
+char *
+chrcat(char *dest, const char src) 
 {
 		size_t len = strlen(dest);
 

@@ -1,5 +1,14 @@
-#ifndef XTRA_IO
-#define XTRA_IO
+/**
+ * @file io.h
+ * @author yung-turabian
+ * @date 4 6 2024
+ * @brief New functions related to file handling and writing to stdout. 
+ * 
+ * @copyright BSD-3-Clause
+ */
+
+#ifndef XTRA_IO_H
+#define XTRA_IO_H
 
 #include <stdio.h>
 #include <stdint.h>
@@ -15,7 +24,8 @@ typedef uint8_t u8;
 =================*/
 
 /**
- *	@brief View the next character in stream, desn't move cursor pointer.
+ *	@brief View the next character in stream, doesn't move pointer.
+ *	@return character.
  */
 char 
 fpeek(FILE *stream) 
@@ -26,8 +36,8 @@ fpeek(FILE *stream)
 }
 
 /**
- *	@brief View a character at position without moving pointer; 
- *	Peeks a seek.
+ *	@brief View a character at position without moving pointer; Peeks a seek.
+ *	@return seeked and peeked character.
  */
 char 
 fspeek(FILE *stream, long int offset, int position) 
@@ -45,7 +55,10 @@ fspeek(FILE *stream, long int offset, int position)
 	return c;
 }
 
-// a recursive peek that goes to end of line or EOF to get # of occurences
+/**
+ * @brief A recursive peek that goes to end of line or EOF
+ * to get # of occurences.
+ */
 int 
 frpeek(FILE *stream, char c) 
 {
@@ -65,7 +78,9 @@ frpeek(FILE *stream, char c)
 	return count;
 }
 
-// a recursive peek that goes to delimter d
+/** 
+ * @brief A recursive peek that goes till the delimter `d`.
+ */
 int 
 frdpeek(FILE *stream, char d) 
 {
@@ -88,7 +103,9 @@ frdpeek(FILE *stream, char d)
 	return count;
 }
 
-// character count of given line
+/**
+ * @brief Character count of current line of buffer.
+ */
 int 
 fcounts(FILE *stream) 
 {
@@ -108,13 +125,16 @@ fcounts(FILE *stream)
 	return count;
 }
 
+/**
+ * @brief Copies data from `src` file tp `dest` file.
+ */
 int 
-fcopy(FILE *fp, FILE *tmp) 
+fcopy(FILE *dest, FILE *src) 
 {
 	int c;
-	if(ftell(tmp)!=0) fseek(tmp, 0, SEEK_SET); //reset pos
-	while((c=fgetc(tmp)) != EOF) {
-		if(fputc(c, fp) == EOF) break;
+	if(ftell(src) != 0) fseek(src, 0, SEEK_SET); //reset pos
+	while((c = fgetc(src)) != EOF) {
+		if(fputc(c, dest) == EOF) break;
 	}
 	return 1;
 }

@@ -2,8 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define INT_MAX 2147483647
+
 #define CHARSET "abcdefghijklmnopqrstuvwxyz"
 #define CHARSET_LEN 26
+
+typedef float       f32;
+typedef double      f64;
+typedef long double f128;
 
 
 /**
@@ -11,17 +17,30 @@
  */
 size_t 
 rng(size_t lb, size_t ub) {
-	#if defined(__linux__) || defined(__APPLE__)
+#if defined(__linux__) || defined(__APPLE__)
 		struct timespec spec;
 		timespec_get(&spec, TIME_UTC);
 		long long ns;
 		ns = spec.tv_nsec; //fractional
 		int seed = lb + ((22695477 * ns) % 4294967296) % (ub - lb + 1); 
 		return seed;
-	#endif
-	#ifdef __MINGW32
+#endif
+#ifdef __MINGW32
 		return NULL;
-	#endif
+#endif
+}
+
+/**
+ * @brief Uses the defined INT_MAX instead of passing bounds
+ */
+int 
+randi() {
+		return (int)rng(0, INT_MAX-1);
+}
+
+int 
+randib(int lb, int ub) {
+		return (int)rng(lb, ub);
 }
 
 // generate random char
