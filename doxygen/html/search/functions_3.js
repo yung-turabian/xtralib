@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defer_0',['defer',['../xtra_8h.html#ae6c05f91e2dee3be824a2d17f7a36e79',1,'xtra.h']]]
+  ['wcswcn_0',['wcswcn',['../string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c'],['../string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c']]]
 ];

@@ -12,20 +12,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-// Ensure no conflicts if bool is already defined
-#ifndef bool
-		typedef enum {true, false} bool;
-#else
-		typedef enum {xtra_true, xtra_false} xtra_bool;
-#endif
-
-// utility macro for `defer(1)`
-#define fnname(name) #name
-
-// A macro alt for a for-loop, pass simply start and end and use `it` as
-// the iterator
-#define forx(start, end) for(int it = start; it < end; it++)
-
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
@@ -35,20 +21,40 @@ typedef int16_t s16;
 typedef int32_t s32;
 typedef int64_t s64;
 
+// Ensure no conflicts if bool is already defined
+#if !defined(__cplusplus)
+		#if !defined(bool) 
+				typedef enum {false, true} bool;
+		#else
+				typedef enum {xfalse, xtrue} xtra_bool;
+		#endif
+#endif
+
+// utility macro for `defer(1)`
+#define fnname(name) #name
+
+// A macro alt for a for-loop, pass simply start and end and use `it` as
+// the iterator
+#define FOR(start, end) for(u64 it = (u64)(start); it < (u64)(end); it++)
+
+
+
 
 
 typedef void (*deferred_function)(void);
 
 /**
- * @brief A safer atexit() function
+ * @brief A safer atexit() function, borrows the returns
+ * @return 
  */
-void
+static inline int
 defer(deferred_function func)
 {
-		if(atexit(func) != 0) {
-				fprintf(stderr, "Function: %s; failed to defer\n", fnname(atexit));
-				exit(EXIT_FAILURE);
-		}
+		int ret;
+		if((ret = atexit(func)) == 0)
+				return ret;
+
+		return ret;
 }
 
 

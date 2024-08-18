@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['strcov_0',['strcov',['../string_8h.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'string.h']]],
-  ['strdup_1',['strdup',['../string_8h.html#ad593a8fc0baab9427df9636001dccddd',1,'string.h']]],
-  ['strpcat_2',['strpcat',['../string_8h.html#a623e21af92815202b2bd389d3da5424d',1,'string.h']]]
+  ['trie_5fdelete_0',['trie_delete',['../trie_8h.html#a299747d402f2b13f98312a2cb0ecd1a3',1,'trie_delete(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#a299747d402f2b13f98312a2cb0ecd1a3',1,'trie_delete(TrieNode *root, wchar_t *word):&#160;trie.c']]],
+  ['trie_5finsert_1',['trie_insert',['../trie_8h.html#a9335089d135739d2851e8056e0df1c94',1,'trie_insert(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#a9335089d135739d2851e8056e0df1c94',1,'trie_insert(TrieNode *root, wchar_t *word):&#160;trie.c']]]
 ];

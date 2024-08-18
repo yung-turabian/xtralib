@@ -93,8 +93,7 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">xtra.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -111,9 +110,9 @@ Macros</h2></td></tr>
 <tr class="memitem:aeb1bc647f9fe2922556dad60a90f3b45" id="r_aeb1bc647f9fe2922556dad60a90f3b45"><td class="memItemLeft" align="right" valign="top"><a id="aeb1bc647f9fe2922556dad60a90f3b45" name="aeb1bc647f9fe2922556dad60a90f3b45"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>fnname</b>(name)&#160;&#160;&#160;#name</td></tr>
 <tr class="separator:aeb1bc647f9fe2922556dad60a90f3b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23cf6b476f3fecd08f2d4a30cf9ad5d6" id="r_a23cf6b476f3fecd08f2d4a30cf9ad5d6"><td class="memItemLeft" align="right" valign="top"><a id="a23cf6b476f3fecd08f2d4a30cf9ad5d6" name="a23cf6b476f3fecd08f2d4a30cf9ad5d6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>forx</b>(start,  end)&#160;&#160;&#160;for(int it = start; it &lt; end; it++)</td></tr>
-<tr class="separator:a23cf6b476f3fecd08f2d4a30cf9ad5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea733ef0762d2dbce44fa4b0f86801c" id="r_a1ea733ef0762d2dbce44fa4b0f86801c"><td class="memItemLeft" align="right" valign="top"><a id="a1ea733ef0762d2dbce44fa4b0f86801c" name="a1ea733ef0762d2dbce44fa4b0f86801c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FOR</b>(start,  end)&#160;&#160;&#160;for(u64 it = (u64)(start); it &lt; (u64)(end); it++)</td></tr>
+<tr class="separator:a1ea733ef0762d2dbce44fa4b0f86801c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -147,17 +146,10 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>deferred_fu
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:af6a258d8f3ee5206d682d799316314b1" id="r_af6a258d8f3ee5206d682d799316314b1"><td class="memItemLeft" align="right" valign="top"><a id="af6a258d8f3ee5206d682d799316314b1" name="af6a258d8f3ee5206d682d799316314b1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>bool</b> { <b>true</b>
-, <b>false</b>
+<tr class="memitem:af6a258d8f3ee5206d682d799316314b1" id="r_af6a258d8f3ee5206d682d799316314b1"><td class="memItemLeft" align="right" valign="top"><a id="af6a258d8f3ee5206d682d799316314b1" name="af6a258d8f3ee5206d682d799316314b1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>bool</b> { <b>false</b>
+, <b>true</b>
  }</td></tr>
 <tr class="separator:af6a258d8f3ee5206d682d799316314b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ae6c05f91e2dee3be824a2d17f7a36e79" id="r_ae6c05f91e2dee3be824a2d17f7a36e79"><td class="memItemLeft" align="right" valign="top"><a id="ae6c05f91e2dee3be824a2d17f7a36e79" name="ae6c05f91e2dee3be824a2d17f7a36e79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>defer</b> (deferred_function func)</td></tr>
-<tr class="memdesc:ae6c05f91e2dee3be824a2d17f7a36e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">A safer atexit() function. <br /></td></tr>
-<tr class="separator:ae6c05f91e2dee3be824a2d17f7a36e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General functions. </p>
@@ -166,7 +158,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>defer</b> (deferred_f
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 6 2024 for xtralib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Sat Aug 17 2024 for xtralib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

@@ -102,9 +102,8 @@ $(function(){ initResizable(false); });
 <p>New functions and types related to string and string manipulation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">string.h</a>&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;wchar.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
 </div>
 <p><a href="string_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -116,6 +115,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a32e72910b2af3c1061b595f80b367979" id="r_a32e72910b2af3c1061b595f80b367979"><td class="memItemLeft" align="right" valign="top"><a id="a32e72910b2af3c1061b595f80b367979" name="a32e72910b2af3c1061b595f80b367979"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARSET_SIZE</b>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:a32e72910b2af3c1061b595f80b367979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c52d6d320f53e9e6632cce5a595660" id="r_a62c52d6d320f53e9e6632cce5a595660"><td class="memItemLeft" align="right" valign="top"><a id="a62c52d6d320f53e9e6632cce5a595660" name="a62c52d6d320f53e9e6632cce5a595660"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SUB</b>&#160;&#160;&#160;0x1A</td></tr>
 <tr class="separator:a62c52d6d320f53e9e6632cce5a595660"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,18 +138,39 @@ Functions</h2></td></tr>
 <tr class="memitem:ab5f07dd407bfddf61822c170b143528c" id="r_ab5f07dd407bfddf61822c170b143528c"><td class="memItemLeft" align="right" valign="top"><a id="ab5f07dd407bfddf61822c170b143528c" name="ab5f07dd407bfddf61822c170b143528c"></a>
 typedef&#160;</td><td class="memItemRight" valign="bottom"><b>CSTRING_SLICE_TYPE</b> (char) slice</td></tr>
 <tr class="separator:ab5f07dd407bfddf61822c170b143528c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad593a8fc0baab9427df9636001dccddd" id="r_ad593a8fc0baab9427df9636001dccddd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad593a8fc0baab9427df9636001dccddd">strdup</a> (const char *str)</td></tr>
-<tr class="memdesc:ad593a8fc0baab9427df9636001dccddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implmentation of 'strdup'.  <br /></td></tr>
-<tr class="separator:ad593a8fc0baab9427df9636001dccddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00591099bc4ef0b6cb194d350c0bc64d" id="r_a00591099bc4ef0b6cb194d350c0bc64d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00591099bc4ef0b6cb194d350c0bc64d">strdupl</a> (const char *str)</td></tr>
+<tr class="memdesc:a00591099bc4ef0b6cb194d350c0bc64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implmentation of 'strdup'.  <br /></td></tr>
+<tr class="separator:a00591099bc4ef0b6cb194d350c0bc64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56e23cb7a1cfc951900bd5e308e935ce" id="r_a56e23cb7a1cfc951900bd5e308e935ce"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e23cb7a1cfc951900bd5e308e935ce">strcov</a> (char *str, const char *charset)</td></tr>
 <tr class="memdesc:a56e23cb7a1cfc951900bd5e308e935ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if string covers all of charset.  <br /></td></tr>
 <tr class="separator:a56e23cb7a1cfc951900bd5e308e935ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b09db61496333ae3efc639b10d7c57" id="r_a77b09db61496333ae3efc639b10d7c57"><td class="memItemLeft" align="right" valign="top"><a id="a77b09db61496333ae3efc639b10d7c57" name="a77b09db61496333ae3efc639b10d7c57"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcscov</b> (wchar_t *str, const wchar_t *charset)</td></tr>
+<tr class="separator:a77b09db61496333ae3efc639b10d7c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc9abf2767d06d48a6b56dd7bf4e127" id="r_aabc9abf2767d06d48a6b56dd7bf4e127"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabc9abf2767d06d48a6b56dd7bf4e127">strset</a> (const char *string, const char *charset)</td></tr>
+<tr class="memdesc:aabc9abf2767d06d48a6b56dd7bf4e127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if <code>string</code> contains only characters in <code>charset</code>.  <br /></td></tr>
+<tr class="separator:aabc9abf2767d06d48a6b56dd7bf4e127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad976f16b960e5d6f4712e964fcc55888" id="r_ad976f16b960e5d6f4712e964fcc55888"><td class="memItemLeft" align="right" valign="top"><a id="ad976f16b960e5d6f4712e964fcc55888" name="ad976f16b960e5d6f4712e964fcc55888"></a>
+const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcsset</b> (const wchar_t *string, const wchar_t *charset)</td></tr>
+<tr class="separator:ad976f16b960e5d6f4712e964fcc55888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a623e21af92815202b2bd389d3da5424d" id="r_a623e21af92815202b2bd389d3da5424d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a623e21af92815202b2bd389d3da5424d">strpcat</a> (char *dest, const char *src, size_t pos)</td></tr>
 <tr class="memdesc:a623e21af92815202b2bd389d3da5424d"><td class="mdescLeft">&#160;</td><td class="mdescRight">concatenate but at a give 'p' position.  <br /></td></tr>
 <tr class="separator:a623e21af92815202b2bd389d3da5424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73060cd141354531a3e193427a6acfea" id="r_a73060cd141354531a3e193427a6acfea"><td class="memItemLeft" align="right" valign="top"><a id="a73060cd141354531a3e193427a6acfea" name="a73060cd141354531a3e193427a6acfea"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcspcat</b> (wchar_t *dest, const wchar_t *src, size_t pos)</td></tr>
+<tr class="separator:a73060cd141354531a3e193427a6acfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ef708cfc91a7115dc78e6ea0ed1d6f" id="r_a99ef708cfc91a7115dc78e6ea0ed1d6f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99ef708cfc91a7115dc78e6ea0ed1d6f">chrcat</a> (char *dest, const char src)</td></tr>
 <tr class="memdesc:a99ef708cfc91a7115dc78e6ea0ed1d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenate a char on to the end of a string.  <br /></td></tr>
 <tr class="separator:a99ef708cfc91a7115dc78e6ea0ed1d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0201348c67e5f6950cbfc642c19f8ce0" id="r_a0201348c67e5f6950cbfc642c19f8ce0"><td class="memItemLeft" align="right" valign="top"><a id="a0201348c67e5f6950cbfc642c19f8ce0" name="a0201348c67e5f6950cbfc642c19f8ce0"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wccat</b> (wchar_t *dest, const wchar_t src)</td></tr>
+<tr class="separator:a0201348c67e5f6950cbfc642c19f8ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d91c9609b5e95580c9fd884e7a23bc4" id="r_a6d91c9609b5e95580c9fd884e7a23bc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a> (const char *string, char ch)</td></tr>
+<tr class="memdesc:a6d91c9609b5e95580c9fd884e7a23bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of times that <code>ch</code> appears in <code>string</code>.  <br /></td></tr>
+<tr class="separator:a6d91c9609b5e95580c9fd884e7a23bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b15a946f93bb7b7d111ec70c3a2e22" id="r_a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a> (const wchar_t *string, wchar_t ch)</td></tr>
+<tr class="memdesc:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Wide-char variant) Get number of times that <code>ch</code> appears in <code>string</code>.  <br /></td></tr>
+<tr class="separator:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7e483076865c58e998633015249737" id="r_a7f7e483076865c58e998633015249737"><td class="memItemLeft" align="right" valign="top"><a id="a7f7e483076865c58e998633015249737" name="a7f7e483076865c58e998633015249737"></a>
 long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char *str)</td></tr>
 <tr class="separator:a7f7e483076865c58e998633015249737"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,6 +252,30 @@ long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char 
 
 </div>
 </div>
+<a id="a6d91c9609b5e95580c9fd884e7a23bc4" name="a6d91c9609b5e95580c9fd884e7a23bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d91c9609b5e95580c9fd884e7a23bc4">&#9670;&#160;</a></span>strchrn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int strchrn </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>ch</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get number of times that <code>ch</code> appears in <code>string</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of instances. </dd></dl>
+
+</div>
+</div>
 <a id="a56e23cb7a1cfc951900bd5e308e935ce" name="a56e23cb7a1cfc951900bd5e308e935ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56e23cb7a1cfc951900bd5e308e935ce">&#9670;&#160;</a></span>strcov()</h2>
 
@@ -254,14 +301,14 @@ long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char 
 
 </div>
 </div>
-<a id="ad593a8fc0baab9427df9636001dccddd" name="ad593a8fc0baab9427df9636001dccddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad593a8fc0baab9427df9636001dccddd">&#9670;&#160;</a></span>strdup()</h2>
+<a id="a00591099bc4ef0b6cb194d350c0bc64d" name="a00591099bc4ef0b6cb194d350c0bc64d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00591099bc4ef0b6cb194d350c0bc64d">&#9670;&#160;</a></span>strdupl()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char * strdup </td>
+          <td class="memname">char * strdupl </td>
           <td>(</td>
           <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
@@ -303,10 +350,58 @@ long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char 
 
 </div>
 </div>
+<a id="aabc9abf2767d06d48a6b56dd7bf4e127" name="aabc9abf2767d06d48a6b56dd7bf4e127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc9abf2767d06d48a6b56dd7bf4e127">&#9670;&#160;</a></span>strset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * strset </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>charset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks to see if <code>string</code> contains only characters in <code>charset</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>string if true, NULL if a unexpected character is found. </dd></dl>
+
+</div>
+</div>
+<a id="a16b15a946f93bb7b7d111ec70c3a2e22" name="a16b15a946f93bb7b7d111ec70c3a2e22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b15a946f93bb7b7d111ec70c3a2e22">&#9670;&#160;</a></span>wcswcn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int wcswcn </td>
+          <td>(</td>
+          <td class="paramtype">const wchar_t *</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wchar_t</td>          <td class="paramname"><span class="paramname"><em>ch</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>(Wide-char variant) Get number of times that <code>ch</code> appears in <code>string</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of instances. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 6 2024 for xtralib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Generated on Sat Aug 17 2024 for xtralib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
 </small></address>
 </div><!-- doc-content -->
 </body>

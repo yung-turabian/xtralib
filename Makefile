@@ -1,31 +1,46 @@
 # Variables
-CC = gcc
-CFLAGS = -Iinclude -Wall -Wextra -std=c11
+CC = clang
+AR = ar
+EMCC = emcc
+EMAR = emar
+CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11
+EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread
 SRC_DIR = src
 INC_DIR = include/xtra
 OBJ_DIR = obj
 BIN_DIR = bin
 LIB_DIR = lib
 TESTS_DIR = tests
-LIB_NAME = libXtra.a
+LIB_NAME = libxtra.a
 LIB_PATH = /usr/local/lib
 INC_PATH = /usr/local/include
 
 # Source and object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
+WASM_OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.wasm.o, $(SRC_FILES))
 TEST_FILES = $(wildcard $(TESTS_DIR)/*.c)
 
 # Target rules
 all: $(LIB_DIR)/$(LIB_NAME)
 
+# Library targets
 $(LIB_DIR)/$(LIB_NAME): $(OBJ_FILES)
 	@mkdir -p $(LIB_DIR)
-	ar rcs $@ $^
+	$(AR) rcs $@ $^
 
+$(LIB_DIR)/$(LIB_NAME).wasm: $(WASM_OBJ_FILES)
+	@mkdir -p $(LIB_DIR)
+	$(EMAR) rcs $@ $^
+
+# Object file rules
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.wasm.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(EMCC) $(EMCC_FLAGS) --target=wasm32 -c $< -o $@
 
 # Test runner
 test: all
@@ -47,7 +62,10 @@ clean:
 	rm -f test_runner
 
 check:
-	ar -t $(LIB_PATH)/$(LIB_NAME)
+	$(AR) -t $(LIB_PATH)/$(LIB_NAME)
+
+# WebAssembly target
+wasm: $(LIB_DIR)/$(LIB_NAME).wasm
 
 
 # Phony targets
