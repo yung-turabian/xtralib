@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['wcs_5fdynarr_5ft_0',['wcs_dynarr_t',['../structwcs__dynarr__t.html',1,'']]],
-  ['wcswcn_1',['wcswcn',['../string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c'],['../string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c']]]
+  ['xstring_25',['xstring',['../structxstring.html',1,'']]],
+  ['xtra_2eh_26',['xtra.h',['../xtra_8h.html',1,'']]],
+  ['xtralib_27',['xtralib',['../index.html',1,'']]],
+  ['xtralibs_28',['xtralibs',['../md__home_hendog4eva_xtralib_README.html',1,'']]]
 ];

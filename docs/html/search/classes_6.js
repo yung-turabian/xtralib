@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xstring_0',['xstring',['../structxstring.html',1,'']]]
+  ['xstring_37',['xstring',['../structxstring.html',1,'']]]
 ];
