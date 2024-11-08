@@ -1,6 +1,8 @@
 #include <xtra/raylib.h>
 #include <stdio.h>
 
+#if defined(RAYLIB_H) && defined(RAYMATH_H)
+
 void 
 DrawDashedLine(Vector2 startPos, Vector2 endPos, float thick, Color color)
 {
@@ -52,3 +54,5 @@ DrawDashedLineEx(Vector2 startPos, Vector2 endPos,
         dashStart = Vector2MoveTowards(dashEnd, endPos, spacing);
     }
 }
+
+#endif
