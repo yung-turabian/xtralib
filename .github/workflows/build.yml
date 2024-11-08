@@ -22,9 +22,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install emscripten
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get install libraylib-dev
+    #- name: Install dependencies
+    #  run: |
+    #    sudo apt-get install libraylib-dev
 
     - name: Build library
       run: make all
