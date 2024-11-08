@@ -21,7 +21,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install emscripten
-        sudo apt-get install emcc
 
     - name: Install dependencies
       run: |
