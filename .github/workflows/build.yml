@@ -27,20 +27,10 @@ jobs:
     #    sudo apt-get install libraylib-dev
 
     - name: Build library
-      run: make all
+      run: make install
 
     - name: Run tests
       run: make test
 
     - name: Check installation
       run: make check
-
-  clean:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Clean build
-      run: make clean
