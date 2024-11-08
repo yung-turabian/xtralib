@@ -1,0 +1,47 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ "trunk" ]
+  pull_request:
+    branches: [ "trunk" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Clang
+      run: sudo apt-get install clang
+
+    - name: Set up Emscripten
+      run: |
+        sudo apt-get update
+        sudo apt-get install emscripten
+        sudo apt-get install emcc
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install libraylib-dev
+
+    - name: Build library
+      run: make all
+
+    - name: Run tests
+      run: make test
+
+    - name: Check installation
+      run: make check
+
+  clean:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clean build
+      run: make clean
