@@ -27,7 +27,7 @@ jobs:
     #    sudo apt-get install libraylib-dev
 
     - name: Build library
-      run: make install
+      run: sudo make install
 
     - name: Run tests
       run: make test
