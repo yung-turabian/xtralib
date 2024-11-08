@@ -8,48 +8,49 @@
  */
 
 #include <xtra/trie.h>
+#include <xtra/memory.h>
 
-TrieNode *
-trienode_init(wchar_t data)
+TrieNode * TrieNodeInit(wchar_t data, int numOfLetters)
 {
-    TrieNode *node = (TrieNode*)calloc(1, sizeof(TrieNode));
-    for(int i = 0; i < TRIE_LETTERS_N; i++)
+    TrieNode *node = (TrieNode*)CALLOC(1, sizeof(TrieNode) + sizeof(TrieNode*) * xtTrieNumOfLetters);
+		// Skipping error checking, Unsafe
+		xtTrieNumOfLetters = numOfLetters;
+    for(int i = 0; i < xtTrieNumOfLetters; i++)
         node->children[i] = NULL;
-    node->is_leaf = 0;
+
+    node->is_leaf = false;
     node->data = data;
 
     return node;
 }
 
-void
-trienode_free(TrieNode *node)
+void TrieNodeFree(TrieNode *node)
 {
-    for(int i = 0; i < TRIE_LETTERS_N; i++)
+    for(int i = 0; i < xtTrieNumOfLetters; i++)
     {
         if(node->children[i] != NULL)
-            trienode_free(node->children[i]);
+            TrieNodeFree(node->children[i]);
         else
             continue;
     }
-    free(node);
+    FREE(node);
 }
 
 /**
  *  @brief Inserts word onto the trie
  *  @warning Assumes word only has lower case characters.
  */
-TrieNode *
-trie_insert(TrieNode *root, wchar_t *word)
+TrieNode * TrieInsert(TrieNode *root, wchar_t *word)
 {
     TrieNode *temp = root;
 
     for(int i = 0; word[i] != L'\0'; i++)
     {
-        int idx = (int) word[i] - L'a';
+        int idx = (int) word[i] % xtTrieNumOfLetters;
         if(temp->children[idx] == NULL)
         {
             // if doesn't exist, create child
-            temp->children[idx] = trienode_init(word[i]);
+            temp->children[idx] = TrieNodeInit(word[i], xtTrieNumOfLetters);
         }
         else
         {
@@ -59,7 +60,7 @@ trie_insert(TrieNode *root, wchar_t *word)
         temp = temp->children[idx];
     }
     // At end of word, mark node as a leaf node
-    temp->is_leaf = 1;
+    temp->is_leaf = true;
     return root;
 }
 
@@ -68,8 +69,7 @@ trie_insert(TrieNode *root, wchar_t *word)
  *  Will try to delete the word sequence from trie only if
  *  it ends up in a leaf node.
  */
-TrieNode *
-trie_delete(TrieNode *root, wchar_t *word)
+TrieNode * TrieDelete(TrieNode *root, wchar_t *word)
 {
     if(!root)
         return NULL;
@@ -81,44 +81,49 @@ trie_delete(TrieNode *root, wchar_t *word)
     // If node corresponding to the mathch is not a leaf node, stop
     //if(!is_leaf_node(root, word))
     //    return root;
-
+		printf("NOT IMPLEMENTED\n");
+		return NULL;
 }
 
-
-int
-trie_search(TrieNode *root, wchar_t *word)
+/**
+ *	@brief Searches for a given word.
+ */
+bool TrieSearch(TrieNode *root, wchar_t *word)
 {
     TrieNode *temp = root;
 
     for(int i = 0; word[i] != L'\0'; i++)
     {
-        int position = word[i] - 'a';
+        int position = word[i] % xtTrieNumOfLetters;
         if(temp->children[position] == NULL)
-            return 0;
+            return false;
         temp = temp->children[position];
     }
-    if(temp != NULL && temp->is_leaf == 1)
-        return 1;
-    return 0;
+    if(temp != NULL && temp->is_leaf)
+        return true;
+    return false;
 }
 
-void
-trie_print(TrieNode *root)
+void TriePrint(TrieNode *root)
 {
     if(!root)
         return;
     TrieNode *temp = root;
     printf("%c -> ", temp->data);
-    for(int i = 0; i < TRIE_LETTERS_N; i++)
-        trie_print(temp->children[i]);
+    for(int i = 0; i < xtTrieNumOfLetters; i++)
+        TriePrint(temp->children[i]);
 }
 
-void
-trie_print_search(TrieNode *root, wchar_t *word)
+bool TriePrintSearch(TrieNode *root, wchar_t *word)
 {
     printf("Searching for %ls: ", word);
-    if(trie_search(root, word) == 0)
+		bool ret = true;
+    if(TrieSearch(root, word) == 0) {
         printf("Not found\n");
+				ret = false;
+		}
     else
         printf("Found!\n");
+
+		return ret;
 }

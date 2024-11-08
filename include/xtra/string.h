@@ -6,14 +6,18 @@
  * 
  * @copyright BSD-3-Clause
  */
-
-
-#ifndef XTRA_STRING_H
-#define XTRA_STRING_H
+#ifndef __XTRA_STRING_H__
+#define __XTRA_STRING_H__
 
 #include <string.h>
-#include <wchar.h>
 #include <stdlib.h>
+
+#if defined(__APPLE__)
+#include <wchar.h>
+#elif defined(__linux__)
+#include <wchar.h>
+#include <wctype.h>
+#endif
 
 #define MAX_CHARSET_SIZE 256
 #define SUB 0x1A // an empty char as not to interfere with '\0'
@@ -21,29 +25,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#define CSTRING_SLICE_TYPE(TYPE) \
-		struct	\
-		{	\
-				unsigned long long  len; \
-				TYPE *buf; \
-		}
-typedef CSTRING_SLICE_TYPE(char) slice;
-
-#define CSTRING_SLICE_INIT(BUF, LEN) \
-		{ \
-				.buf = (BUF), .len = (LEN) \
-		}
-
-
-/** @struct
- * @brief An new revision of the string.
- */
-typedef struct xstring {
-		char *ptr;
-		unsigned long long len;
-} xstring;
-
 
 char * strdupl(const char *str);
 
@@ -63,6 +44,15 @@ wchar_t * wccat(wchar_t *dest, const wchar_t src);
 
 int strchrn(const char *string, char ch);
 int wcswcn(const wchar_t *string, wchar_t ch);
+
+
+wchar_t * wcsrev(wchar_t *str);
+char * strpre(char *str, char chr);
+wchar_t * wcspre(wchar_t *str, wchar_t chr);
+char * strpres(char *str, char* pre);
+wchar_t * wcspres(wchar_t *str, wchar_t *pre);
+
+wchar_t *iswcsdigit(wchar_t *string);
 
 
 long hash(const char* str);

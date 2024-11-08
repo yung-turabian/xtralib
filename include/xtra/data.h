@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#ifndef XTRA_DATASTRUCTURES_H
-#define XTRA_DATASTRUCTURES_H
+#ifndef __XTRA_DATASTRUCTURES_H__
+#define __XTRA_DATASTRUCTURES_H__
 
 #include <string.h>
 #include <stdio.h>
@@ -34,18 +34,16 @@ struct Map {
 		int      values[MAP_MAX];
 };
 
-Map * map_init();
+Map * MapInit();
 
-int map_getIndex(Map *m, char key[]);
+void MapInsert(Map *m, char key[], int value);
 
-void map_insert(Map *m, char key[], int value);
+int MapGet(Map *m, char key[]);
 
-int map_get(Map *m, char key[]);
-
-void map_print(Map *m);
+void MapPrint(Map *m);
 
 // TODO: Not finished
-void map_free(Map *m);
+void MapFree(Map *m);
 
 
 typedef struct wcs_dynarr_t wcs_dynarr_t;

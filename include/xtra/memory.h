@@ -2,22 +2,41 @@
 #define XTRA_MEMORY_H
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdatomic.h>
 
 #ifndef MALLOC
-#define MALLOC(size) mem_alloc(size)
+#define MALLOC(size) malloc_s(size)
+#endif
+
+#ifndef CALLOC
+#define CALLOC(nitems,size) calloc_s(nitems, size)
+#endif
+
+#ifndef REALLOC
+#define REALLOC(ptr,size) realloc_s(ptr, size)
+#endif
+
+#ifndef MGET
+#define MGET(ptr) mget_s(ptr)
 #endif
 
 #ifndef FREE
-#define FREE(ptr) mem_free(ptr)
+#define FREE(ptr) free_s(ptr)
 #endif
 
-static atomic_size_t total_allocated_bytes = 0;
+void * malloc_s(size_t size);
 
-void * mem_alloc(size_t size);
+void * calloc_s(size_t nitems, size_t size);
 
-void mem_free(void *ptr);
+void * realloc_s(void *ptr, size_t size);
+
+size_t mget_s(void *ptr);
+
+size_t free_s(void *ptr);
+
+size_t mget_all();
 
 
 #endif

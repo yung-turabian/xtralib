@@ -1,5 +1,5 @@
-#ifndef XTRA_RAND_H
-#define XTRA_RAND_H
+#ifndef __XTRA_RAND_H__
+#define __XTRA_RAND_H__
 
 #include <time.h>
 #include <stdlib.h>

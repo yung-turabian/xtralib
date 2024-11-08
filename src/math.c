@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <xtra/memory.h>
 
 // Matrix, WIP
 typedef struct {
@@ -11,13 +12,13 @@ typedef struct {
 
 Matrix* 
 create_matrix(int n_rows, int n_cols) {
-	Matrix *mat = malloc(sizeof(Matrix));
+	Matrix *mat = (Matrix*)MALLOC(sizeof(Matrix));
 	mat->rows = n_rows;
 	mat->cols = n_cols;
-	double** _data = malloc(sizeof(double*) * n_rows);
+	double** _data = (double**)MALLOC(sizeof(double*) * n_rows);
 
 	for(int i=0;i<n_rows;i++) {
-		_data[i] = calloc(n_cols, sizeof(double));
+		_data[i] = (double*)CALLOC(n_cols, sizeof(double));
 	}
 	mat->data = _data;
 	return mat;

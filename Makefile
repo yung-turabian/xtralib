@@ -3,8 +3,8 @@ CC = clang
 AR = ar
 EMCC = emcc
 EMAR = emar
-CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11
-EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread
+CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -lraylib
+EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread -I/usr/local/include 
 SRC_DIR = src
 INC_DIR = include/xtra
 OBJ_DIR = obj
@@ -12,8 +12,12 @@ BIN_DIR = bin
 LIB_DIR = lib
 TESTS_DIR = tests
 LIB_NAME = libxtra.a
-LIB_PATH = /usr/local/lib
+LIB_PATH1 = /usr/local/lib
+LIB_PATH2 = /usr/lib
 INC_PATH = /usr/local/include
+
+ARCH := $(shell uname -s)
+$(info ARCH=$(ARCH))
 
 # Source and object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
@@ -31,7 +35,7 @@ $(LIB_DIR)/$(LIB_NAME): $(OBJ_FILES)
 
 $(LIB_DIR)/$(LIB_NAME).wasm: $(WASM_OBJ_FILES)
 	@mkdir -p $(LIB_DIR)
-	$(EMAR) rcs $@ $^
+	$(EMAR) rcs $@ $^ 
 
 # Object file rules
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -50,11 +54,17 @@ test: all
 
 install: all
 	@mkdir -p $(LIB_PATH) $(INC_PATH)
-	cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH)
+	cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH1)
+
+ifeq ($(ARCH),Linux) 
+	cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH2)
+endif
+
 	cp -r $(INC_DIR) $(INC_PATH)
 
 uninstall:
-	rm -f $(LIB_PATH)/$(LIB_NAME)
+	rm -f $(LIB_PATH1)/$(LIB_NAME)
+	rm -f $(LIB_PATH2)/$(LIB_NAME)
 	rm -rf $(INC_PATH)/xtra
 
 clean:
@@ -62,7 +72,8 @@ clean:
 	rm -f test_runner
 
 check:
-	$(AR) -t $(LIB_PATH)/$(LIB_NAME)
+	$(AR) -t $(LIB_PATH1)/$(LIB_NAME)
+	$(AR) -t $(LIB_PATH2)/$(LIB_NAME)
 
 # WebAssembly target
 wasm: $(LIB_DIR)/$(LIB_NAME).wasm

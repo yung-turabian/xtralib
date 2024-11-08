@@ -8,6 +8,7 @@
  */
 
 #include <xtra/string.h>
+#include <xtra/memory.h>
 
 
 /**
@@ -18,7 +19,7 @@ char *
 strdupl(const char *str)
 {
 		size_t len = 1 + strlen(str);
-		char *p = (char*)malloc(len);
+		char *p = (char*)MALLOC(len);
 
 		return p ? strncpy(p, str, len) : NULL;
 }
@@ -28,13 +29,13 @@ strdupl(const char *str)
  * @warning will not care if a character not present in the charset is found.
  * @return string on success or NULL on failure.
  */
-char *
-strcov(char *str, const char *charset)
+char * strcov(char *str, const char *charset)
 {
 		int req = strlen(charset);
 		int count = 0;
 
-		char* tmp_charset = strdup(charset);
+		char* tmp_charset = (char*)MALLOC(sizeof(char) * strlen(charset));
+		strcpy(tmp_charset, charset);
 		
 		for(size_t i = 0; i < strlen(str); i++) {
 				for(size_t j = 0; j < strlen(tmp_charset); j++) 
@@ -48,18 +49,18 @@ strcov(char *str, const char *charset)
 		}
 		
 		// cleanup
-		free(tmp_charset);
+		FREE(tmp_charset);
 		
 		return (count == req) ? str : NULL;
 }
 
-wchar_t *
-wcscov(wchar_t *str, const wchar_t *charset)
+wchar_t * wcscov(wchar_t *str, const wchar_t *charset)
 {
 		int req = wcslen(charset);
 		int count = 0;
 
-		wchar_t *tmp_charset = wcsdup(charset);
+		wchar_t *tmp_charset = (wchar_t*)MALLOC(sizeof(wchar_t) * wcslen(charset));
+		wcscpy(tmp_charset, charset);
 		
 		for(size_t i = 0; i < wcslen(str); i++) {
 				for(size_t j = 0; j < wcslen(tmp_charset); j++) 
@@ -74,7 +75,7 @@ wcscov(wchar_t *str, const wchar_t *charset)
 		}
 		
 		// cleanup
-		free(tmp_charset);
+		FREE(tmp_charset);
 		
 		return (count == req) ? str : NULL;
 }
@@ -84,8 +85,7 @@ wcscov(wchar_t *str, const wchar_t *charset)
  * @brief Checks to see if `string` contains only characters in `charset`.
  * @return string if true, NULL if a unexpected character is found.
  */
-const char *
-strset(const char *string, const char *charset)
+const char * strset(const char *string, const char *charset)
 {
 		for(const char *p = string; *p != '\0'; p++)
 		{
@@ -105,8 +105,7 @@ strset(const char *string, const char *charset)
 		return string;
 }
 
-const wchar_t *
-wcsset(const wchar_t *string, const wchar_t *charset)
+const wchar_t * wcsset(const wchar_t *string, const wchar_t *charset)
 {
 		for(const wchar_t *p = string; *p != L'\0'; p++)
 		{
@@ -184,23 +183,116 @@ wccat(wchar_t *dest, const wchar_t src)
 {
 		size_t len = wcslen(dest);
 
-		if(len == 0) {
-				dest[0] = src;
-		}
-		else {
-				dest[len] = src;
-				dest[len + 1] = L'\0';
-		}
+		dest[len] = src;
+		dest[len + 1] = L'\0';
 
 		return dest;
+}
+
+/**
+ *	@brief Reverses the wide character string.
+ *	@return on success return string.
+ */
+wchar_t * wcsrev(wchar_t *str)
+{
+		int start = 0;
+		int end = wcslen(str) - 1;
+		wchar_t temp;
+
+		while(start < end)
+		{
+				temp = str[start];
+				str[start] = str[end];
+				str[end] = temp;
+
+				start++;
+				end--;
+		}
+
+		return str;
+}
+
+/**
+ *	@brief Prepends a character to a wide character string.
+ *	@return on success return string.
+ */
+wchar_t * wcspre(wchar_t *str, wchar_t chr)
+{
+		int length = wcslen(str);
+
+		wchar_t *new_str = (wchar_t*)MALLOC(sizeof(wchar_t) * (length + 2));
+		if(new_str == NULL) {
+				return NULL;
+		}
+
+		new_str[0] = chr;
+
+		wcscpy(new_str + 1, str);
+		wcscpy(str, new_str);
+
+		FREE(new_str);
+
+		return str;
+}
+
+char * strpre(char *str, char chr)
+{
+		char *newStr = (char*)MALLOC(sizeof(char) * (strlen(str) + 2));
+		if(newStr == NULL) {
+				return NULL;
+		}
+
+		newStr[0] = chr;
+
+		strcpy(newStr + 1, str);
+		strcpy(str, newStr);
+
+		FREE(newStr);
+
+		return str;
+}
+
+char * strpres(char *str, char *pre)
+{
+		char *newStr = (char*)MALLOC(sizeof(char) * (strlen(str) + strlen(pre) + 1));
+		if(newStr == NULL) {
+				return NULL;
+		}
+
+		strcpy(newStr, pre);
+		strcat(newStr, str);
+		newStr[strlen(newStr) + 1] = L'\0';
+
+		strcpy(str, newStr);
+
+		FREE(newStr);
+
+		return str;
+}
+
+wchar_t * wcspres(wchar_t *str, wchar_t *pre)
+{
+		wchar_t *newStr = (wchar_t*)MALLOC(sizeof(wchar_t) * (wcslen(str) + wcslen(pre) + 1));
+		if(newStr == NULL) {
+				return NULL;
+		}
+
+		wcscpy(newStr, pre);
+		wcscat(newStr, str);
+		newStr[wcslen(newStr) + 1] = L'\0';
+
+		wcscpy(str, newStr);
+
+		FREE(newStr);
+
+		return str;
 }
 
 /**
  * @brief Get number of times that `ch` appears in `string`.
  * @return the number of instances.
  */
-int
-strchrn(const char *string, char ch)
+int strchrn(const char *string, char ch)
 {
 		unsigned long count = 0;
 		unsigned long i = 0;
@@ -216,8 +308,7 @@ strchrn(const char *string, char ch)
  * @brief (Wide-char variant) Get number of times that `ch` appears in `string`.
  * @return the number of instances.
  */
-int
-wcswcn(const wchar_t *string, wchar_t ch)
+int wcswcn(const wchar_t *string, wchar_t ch)
 {
 		unsigned long count = 0;
 		unsigned long i = 0;
@@ -228,9 +319,20 @@ wcswcn(const wchar_t *string, wchar_t ch)
 		return count;
 }
 
+/**
+ *	@brief Confirms that wcstring is entirely composed on numbers.
+ *
+ */
+wchar_t *iswcsdigit(wchar_t *string) {
+		for(wchar_t *wc = string; *wc != L'\0'; wc++) {
+				if(!iswdigit(*wc))
+						return NULL;
+		}
+		return string;
+}
+
 // useful for switch statements with strings
-long 
-hash(const char* str)
+long hash(const char* str)
 {
 		long hash = 5381; int c;
 
