@@ -3,7 +3,7 @@ CC = clang
 AR = ar
 EMCC = emcc
 EMAR = emar
-CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -lraylib
+CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11
 EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread -I/usr/local/include 
 SRC_DIR = src
 INC_DIR = include/xtra
@@ -18,6 +18,11 @@ INC_PATH = /usr/local/include
 
 ARCH := $(shell uname -s)
 $(info ARCH=$(ARCH))
+
+HAVE_RAYLIB := $(shell ld -lraylib 2>/dev/null && echo yes || echo no)
+ifeq ($(HAVE_RAYLIB), yes)
+    CFLAGS += -lraylib
+endif
 
 # Source and object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
