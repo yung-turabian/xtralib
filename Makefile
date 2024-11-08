@@ -22,6 +22,7 @@ $(info ARCH=$(ARCH))
 HAVE_RAYLIB := $(shell ld -lraylib 2>/dev/null && echo yes || echo no)
 ifeq ($(HAVE_RAYLIB), yes)
     CFLAGS += -lraylib
+    SRC_FILES += $(SRC_DIR)/raylib.c
 endif
 
 # Source and object files
@@ -59,13 +60,13 @@ test: all
 
 install: all
 	@mkdir -p $(LIB_PATH) $(INC_PATH)
-	cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH1)
+	sudo cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH1)
 
 ifeq ($(ARCH),Linux) 
-	cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH2)
+	sudo cp $(LIB_DIR)/$(LIB_NAME) $(LIB_PATH2)
 endif
 
-	cp -r $(INC_DIR) $(INC_PATH)
+	sudo cp -r $(INC_DIR) $(INC_PATH)
 
 uninstall:
 	rm -f $(LIB_PATH1)/$(LIB_NAME)
