@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['strchrn_48',['strchrn',['../string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c'],['../string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c']]],
-  ['strcov_49',['strcov',['../string_8h.html#a399c115b8810c95c001efd4a9382c599',1,'strcov(char *str, const char *charset):&#160;string.c'],['../string_8c.html#a399c115b8810c95c001efd4a9382c599',1,'strcov(char *str, const char *charset):&#160;string.c']]],
-  ['strdupl_50',['strdupl',['../string_8h.html#a3da30bdb4e3018caf5f48bc6e1556b26',1,'strdupl(const char *str):&#160;string.c'],['../string_8c.html#a3da30bdb4e3018caf5f48bc6e1556b26',1,'strdupl(const char *str):&#160;string.c']]],
-  ['strpcat_51',['strpcat',['../string_8h.html#a87fe5d10ff679262f4b5034852cba30a',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c'],['../string_8c.html#a87fe5d10ff679262f4b5034852cba30a',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c']]],
-  ['strset_52',['strset',['../string_8h.html#a6e98b7cafbd4de38ad6ed7c37fd87c7d',1,'strset(const char *string, const char *charset):&#160;string.c'],['../string_8c.html#a6e98b7cafbd4de38ad6ed7c37fd87c7d',1,'strset(const char *string, const char *charset):&#160;string.c']]]
+  ['fcopy_78',['fcopy',['../io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea',1,'fcopy(FILE *dest, FILE *src):&#160;io.c'],['../io_8c.html#a7663b8ddbc6e91a00cb405e1eb87f5ea',1,'fcopy(FILE *dest, FILE *src):&#160;io.c']]],
+  ['fcounts_79',['fcounts',['../io_8h.html#a256d510cd315f80885f2112ed4d76b43',1,'fcounts(FILE *stream):&#160;io.c'],['../io_8c.html#a256d510cd315f80885f2112ed4d76b43',1,'fcounts(FILE *stream):&#160;io.c']]],
+  ['fpeek_80',['fpeek',['../io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57',1,'fpeek(FILE *stream):&#160;io.c'],['../io_8c.html#a8c9ada983108293c1a98cd3afa8e2b57',1,'fpeek(FILE *stream):&#160;io.c']]],
+  ['fpeek_5fwc_81',['fpeek_wc',['../io_8h.html#aceac3f282b0094593a25506231102cdf',1,'fpeek_wc(FILE *stream):&#160;io.c'],['../io_8c.html#aceac3f282b0094593a25506231102cdf',1,'fpeek_wc(FILE *stream):&#160;io.c']]],
+  ['frdpeek_82',['frdpeek',['../io_8h.html#a752780317273fa671fc8e034b91ec394',1,'frdpeek(FILE *stream, char d):&#160;io.c'],['../io_8c.html#a752780317273fa671fc8e034b91ec394',1,'frdpeek(FILE *stream, char d):&#160;io.c']]],
+  ['frpeek_83',['frpeek',['../io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a',1,'frpeek(FILE *stream, char c):&#160;io.c'],['../io_8c.html#a30c1cf02c1d1828c44f71835f04c2a1a',1,'frpeek(FILE *stream, char c):&#160;io.c']]],
+  ['fspeek_84',['fspeek',['../io_8h.html#a4fa35245ecefc371cb7d7946224c0dca',1,'fspeek(FILE *stream, long int offset, int position):&#160;io.c'],['../io_8c.html#a4fa35245ecefc371cb7d7946224c0dca',1,'fspeek(FILE *stream, long int offset, int position):&#160;io.c']]]
 ];

@@ -10,6 +10,8 @@
 #ifndef __XTRA_IO_H__
 #define __XTRA_IO_H__
 
+#include "common.h"
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
@@ -17,7 +19,8 @@
 #include <wchar.h>
 #include <unistd.h>
 #include <sys/shm.h>
-
+#include <string.h>
+#include <ctype.h>
 
 
 #define ANSI_RED "\x1b[31m" // ANSI code used for color printing to stdout
@@ -64,10 +67,17 @@ int fcounts(FILE *stream);
 
 int fcopy(FILE *dest, FILE *src);
 
+int fexists(const char *file);
+
+int fmove(const char *oldpath, char *newpath);
+
+
 /* STDIN
 ========*/
 
 void sgets(char* str, int n);
+
+bool promptYesOrNo(const char *question);
 
 
 /* STDOUT

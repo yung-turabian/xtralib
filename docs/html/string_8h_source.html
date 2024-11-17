@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/hendog4eva/xtralib/include/xtra/string.h Source File</title>
+<title>xtralib: /home/henry/xtralib/include/xtra/string.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,77 +73,74 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="string_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef XTRA_STRING_H</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define XTRA_STRING_H</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="string_8h.html">string.h</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;wchar.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define MAX_CHARSET_SIZE 256</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SUB 0x1A </span><span class="comment">// an empty char as not to interfere with &#39;\0&#39;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef __XTRA_STRING_H__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define __XTRA_STRING_H__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="string_8h.html">string.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if defined(__APPLE__)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;wchar.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#elif defined(__linux__)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;wchar.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;wctype.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define MAX_CHARSET_SIZE 256</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SUB 0x1A </span><span class="comment">// an empty char as not to interfere with &#39;\0&#39;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define CSTRING_SLICE_TYPE(TYPE) \</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">        struct  \</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">        {   \</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">                unsigned long long  len; \</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">                TYPE *buf; \</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">        }</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">typedef</span> CSTRING_SLICE_TYPE(<span class="keywordtype">char</span>) slice;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define CSTRING_SLICE_INIT(BUF, LEN) \</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">        { \</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">                .buf = (BUF), .len = (LEN) \</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        }</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a3da30bdb4e3018caf5f48bc6e1556b26">strdupl</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a399c115b8810c95c001efd4a9382c599">strcov</a>(<span class="keywordtype">char</span> *str, <span class="keyword">const</span> <span class="keywordtype">char</span> *charset);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">wchar_t</span> * wcscov(<span class="keywordtype">wchar_t</span> *str, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *charset);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a6e98b7cafbd4de38ad6ed7c37fd87c7d">strset</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <span class="keyword">const</span> <span class="keywordtype">char</span> *charset);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> * wcsset(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *<span class="keywordtype">string</span>, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *charset);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structxstring.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structxstring.html">xstring</a> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">char</span> *ptr;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <a class="code" href="structxstring.html">xstring</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a87fe5d10ff679262f4b5034852cba30a">strpcat</a>(<span class="keywordtype">char</span> *dest, <span class="keyword">const</span> <span class="keywordtype">char</span> *src, <span class="keywordtype">size_t</span> pos);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">wchar_t</span> * wcspcat(<span class="keywordtype">wchar_t</span> *dest, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *src, <span class="keywordtype">size_t</span> pos);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a5a8a2679a9ceb950c9304e709c145518">chrcat</a>(<span class="keywordtype">char</span> *dest, <span class="keyword">const</span> <span class="keywordtype">char</span> src);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">wchar_t</span> * wccat(<span class="keywordtype">wchar_t</span> *dest, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> src);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">int</span> <a class="code" href="string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <span class="keywordtype">char</span> ch);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *<span class="keywordtype">string</span>, <span class="keywordtype">wchar_t</span> ch);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a3da30bdb4e3018caf5f48bc6e1556b26">strdupl</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a399c115b8810c95c001efd4a9382c599">strcov</a>(<span class="keywordtype">char</span> *str, <span class="keyword">const</span> <span class="keywordtype">char</span> *charset);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">wchar_t</span> * wcscov(<span class="keywordtype">wchar_t</span> *str, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *charset);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a6e98b7cafbd4de38ad6ed7c37fd87c7d">strset</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <span class="keyword">const</span> <span class="keywordtype">char</span> *charset);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> * wcsset(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *<span class="keywordtype">string</span>, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *charset);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">wchar_t</span> * <a class="code" href="string_8h.html#a0f7aca81bac01467af83e52bd6946877">wcsrev</a>(<span class="keywordtype">wchar_t</span> *str);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">char</span> * strpre(<span class="keywordtype">char</span> *str, <span class="keywordtype">char</span> chr);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">wchar_t</span> * <a class="code" href="string_8h.html#a75f81fc722acdb36e7a2e7c9f7fd282e">wcspre</a>(<span class="keywordtype">wchar_t</span> *str, <span class="keywordtype">wchar_t</span> chr);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">char</span> * strpres(<span class="keywordtype">char</span> *str, <span class="keywordtype">char</span>* pre);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">wchar_t</span> * wcspres(<span class="keywordtype">wchar_t</span> *str, <span class="keywordtype">wchar_t</span> *pre);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">wchar_t</span> *<a class="code" href="string_8h.html#a3f15594659fd9c707967c608eca7c5e8">iswcsdigit</a>(<span class="keywordtype">wchar_t</span> *<span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a87fe5d10ff679262f4b5034852cba30a">strpcat</a>(<span class="keywordtype">char</span> *dest, <span class="keyword">const</span> <span class="keywordtype">char</span> *src, <span class="keywordtype">size_t</span> pos);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">wchar_t</span> * wcspcat(<span class="keywordtype">wchar_t</span> *dest, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *src, <span class="keywordtype">size_t</span> pos);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">long</span> hash(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="string_8h.html#a5a8a2679a9ceb950c9304e709c145518">chrcat</a>(<span class="keywordtype">char</span> *dest, <span class="keyword">const</span> <span class="keywordtype">char</span> src);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">wchar_t</span> * wccat(<span class="keywordtype">wchar_t</span> *dest, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> src);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">int</span> <a class="code" href="string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <span class="keywordtype">char</span> ch);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">int</span> <a class="code" href="string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> *<span class="keywordtype">string</span>, <span class="keywordtype">wchar_t</span> ch);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">long</span> hash(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="astring_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div><div class="ttdoc">New functions and types related to string and string manipulation.</div></div>
-<div class="ttc" id="astring_8h_html_a16b15a946f93bb7b7d111ec70c3a2e22"><div class="ttname"><a href="string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a></div><div class="ttdeci">int wcswcn(const wchar_t *string, wchar_t ch)</div><div class="ttdoc">(Wide-char variant) Get number of times that ch appears in string.</div><div class="ttdef"><b>Definition:</b> string.c:220</div></div>
+<div class="ttc" id="astring_8h_html_a0f7aca81bac01467af83e52bd6946877"><div class="ttname"><a href="string_8h.html#a0f7aca81bac01467af83e52bd6946877">wcsrev</a></div><div class="ttdeci">wchar_t * wcsrev(wchar_t *str)</div><div class="ttdoc">Reverses the wide character string.</div><div class="ttdef"><b>Definition:</b> string.c:196</div></div>
+<div class="ttc" id="astring_8h_html_a16b15a946f93bb7b7d111ec70c3a2e22"><div class="ttname"><a href="string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a></div><div class="ttdeci">int wcswcn(const wchar_t *string, wchar_t ch)</div><div class="ttdoc">(Wide-char variant) Get number of times that ch appears in string.</div><div class="ttdef"><b>Definition:</b> string.c:311</div></div>
 <div class="ttc" id="astring_8h_html_a399c115b8810c95c001efd4a9382c599"><div class="ttname"><a href="string_8h.html#a399c115b8810c95c001efd4a9382c599">strcov</a></div><div class="ttdeci">char * strcov(char *str, const char *charset)</div><div class="ttdoc">Checks if string covers all of charset.</div><div class="ttdef"><b>Definition:</b> string.c:32</div></div>
-<div class="ttc" id="astring_8h_html_a3da30bdb4e3018caf5f48bc6e1556b26"><div class="ttname"><a href="string_8h.html#a3da30bdb4e3018caf5f48bc6e1556b26">strdupl</a></div><div class="ttdeci">char * strdupl(const char *str)</div><div class="ttdoc">Implmentation of 'strdup'.</div><div class="ttdef"><b>Definition:</b> string.c:18</div></div>
-<div class="ttc" id="astring_8h_html_a5a8a2679a9ceb950c9304e709c145518"><div class="ttname"><a href="string_8h.html#a5a8a2679a9ceb950c9304e709c145518">chrcat</a></div><div class="ttdeci">char * chrcat(char *dest, const char src)</div><div class="ttdoc">Concatenate a char on to the end of a string.</div><div class="ttdef"><b>Definition:</b> string.c:167</div></div>
-<div class="ttc" id="astring_8h_html_a6d91c9609b5e95580c9fd884e7a23bc4"><div class="ttname"><a href="string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a></div><div class="ttdeci">int strchrn(const char *string, char ch)</div><div class="ttdoc">Get number of times that ch appears in string.</div><div class="ttdef"><b>Definition:</b> string.c:203</div></div>
+<div class="ttc" id="astring_8h_html_a3da30bdb4e3018caf5f48bc6e1556b26"><div class="ttname"><a href="string_8h.html#a3da30bdb4e3018caf5f48bc6e1556b26">strdupl</a></div><div class="ttdeci">char * strdupl(const char *str)</div><div class="ttdoc">Implmentation of 'strdup'.</div><div class="ttdef"><b>Definition:</b> string.c:19</div></div>
+<div class="ttc" id="astring_8h_html_a3f15594659fd9c707967c608eca7c5e8"><div class="ttname"><a href="string_8h.html#a3f15594659fd9c707967c608eca7c5e8">iswcsdigit</a></div><div class="ttdeci">wchar_t * iswcsdigit(wchar_t *string)</div><div class="ttdoc">Confirms that wcstring is entirely composed on numbers.</div><div class="ttdef"><b>Definition:</b> string.c:326</div></div>
+<div class="ttc" id="astring_8h_html_a5a8a2679a9ceb950c9304e709c145518"><div class="ttname"><a href="string_8h.html#a5a8a2679a9ceb950c9304e709c145518">chrcat</a></div><div class="ttdeci">char * chrcat(char *dest, const char src)</div><div class="ttdoc">Concatenate a char on to the end of a string.</div><div class="ttdef"><b>Definition:</b> string.c:166</div></div>
+<div class="ttc" id="astring_8h_html_a6d91c9609b5e95580c9fd884e7a23bc4"><div class="ttname"><a href="string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a></div><div class="ttdeci">int strchrn(const char *string, char ch)</div><div class="ttdoc">Get number of times that ch appears in string.</div><div class="ttdef"><b>Definition:</b> string.c:295</div></div>
 <div class="ttc" id="astring_8h_html_a6e98b7cafbd4de38ad6ed7c37fd87c7d"><div class="ttname"><a href="string_8h.html#a6e98b7cafbd4de38ad6ed7c37fd87c7d">strset</a></div><div class="ttdeci">const char * strset(const char *string, const char *charset)</div><div class="ttdoc">Checks to see if string contains only characters in charset.</div><div class="ttdef"><b>Definition:</b> string.c:88</div></div>
-<div class="ttc" id="astring_8h_html_a87fe5d10ff679262f4b5034852cba30a"><div class="ttname"><a href="string_8h.html#a87fe5d10ff679262f4b5034852cba30a">strpcat</a></div><div class="ttdeci">char * strpcat(char *dest, const char *src, size_t pos)</div><div class="ttdoc">concatenate but at a give 'p' position.</div><div class="ttdef"><b>Definition:</b> string.c:135</div></div>
-<div class="ttc" id="astructxstring_html"><div class="ttname"><a href="structxstring.html">xstring</a></div><div class="ttdef"><b>Definition:</b> string.h:42</div></div>
+<div class="ttc" id="astring_8h_html_a75f81fc722acdb36e7a2e7c9f7fd282e"><div class="ttname"><a href="string_8h.html#a75f81fc722acdb36e7a2e7c9f7fd282e">wcspre</a></div><div class="ttdeci">wchar_t * wcspre(wchar_t *str, wchar_t chr)</div><div class="ttdoc">Prepends a character to a wide character string.</div><div class="ttdef"><b>Definition:</b> string.c:219</div></div>
+<div class="ttc" id="astring_8h_html_a87fe5d10ff679262f4b5034852cba30a"><div class="ttname"><a href="string_8h.html#a87fe5d10ff679262f4b5034852cba30a">strpcat</a></div><div class="ttdeci">char * strpcat(char *dest, const char *src, size_t pos)</div><div class="ttdoc">concatenate but at a give 'p' position.</div><div class="ttdef"><b>Definition:</b> string.c:134</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

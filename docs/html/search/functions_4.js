@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['fcopy_0',['fcopy',['../io_8h.html#a49144f09020ee186786f15f5ca23012d',1,'io.h']]],
-  ['fcounts_1',['fcounts',['../io_8h.html#a256d510cd315f80885f2112ed4d76b43',1,'io.h']]],
-  ['fpeek_2',['fpeek',['../io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57',1,'io.h']]],
-  ['frdpeek_3',['frdpeek',['../io_8h.html#a752780317273fa671fc8e034b91ec394',1,'io.h']]],
-  ['frpeek_4',['frpeek',['../io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a',1,'io.h']]],
-  ['fspeek_5',['fspeek',['../io_8h.html#a4fa35245ecefc371cb7d7946224c0dca',1,'io.h']]]
+  ['triedelete_91',['TrieDelete',['../trie_8h.html#af8b3a74df67f000cf834309bf12c3530',1,'TrieDelete(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#af8b3a74df67f000cf834309bf12c3530',1,'TrieDelete(TrieNode *root, wchar_t *word):&#160;trie.c']]],
+  ['trieinsert_92',['TrieInsert',['../trie_8h.html#a24d6b8711b7c0e1f27a577ea5d00cec5',1,'TrieInsert(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#a24d6b8711b7c0e1f27a577ea5d00cec5',1,'TrieInsert(TrieNode *root, wchar_t *word):&#160;trie.c']]],
+  ['triesearch_93',['TrieSearch',['../trie_8h.html#aba3e1be755d01462d2b5026c2f6b5b0e',1,'TrieSearch(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#aba3e1be755d01462d2b5026c2f6b5b0e',1,'TrieSearch(TrieNode *root, wchar_t *word):&#160;trie.c']]]
 ];

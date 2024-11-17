@@ -1,3 +1,5 @@
+#include <xtra/math.h>
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,6 +57,16 @@ print_matrix(Matrix* mat) {
 int 
 bcount(int number) {
 	return (int)log2(number)+1;
+}
+
+int 
+isNum(const char *str) {
+		while(*str) {
+				if(!isdigit(*str))
+						return 0;
+				str++;
+		}
+		return 1;
 }
 
 // TODO implement the defines

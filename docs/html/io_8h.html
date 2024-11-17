@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/hendog4eva/xtralib/include/xtra/io.h File Reference</title>
+<title>xtralib: /home/henry/xtralib/include/xtra/io.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,12 +80,16 @@ $(function() {
 
 <p>New functions related to file handling and writing to stdout.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;common.h&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;wchar.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
 <code>#include &lt;sys/shm.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="string_8h_source.html">string.h</a>&gt;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
 </div>
 <p><a href="io_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -127,58 +131,122 @@ typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>u8</b></td
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aec99192cdb173125bf56caa467aa3475"><td class="memItemLeft" align="right" valign="top"><a id="aec99192cdb173125bf56caa467aa3475"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#aec99192cdb173125bf56caa467aa3475">CHECK_PRINTF_FMT</a> (1, 2) static inline void eprintf(const char *fmt</td></tr>
-<tr class="memdesc:aec99192cdb173125bf56caa467aa3475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes writing error to stderr slightly simpler. <br /></td></tr>
-<tr class="separator:aec99192cdb173125bf56caa467aa3475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6bdb5f1a36f5df2cd9ffa0f0be25eba"><td class="memItemLeft" align="right" valign="top"><a id="ae6bdb5f1a36f5df2cd9ffa0f0be25eba"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>va_start</b> (vargs, fmt)</td></tr>
-<tr class="separator:ae6bdb5f1a36f5df2cd9ffa0f0be25eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c08dab3fea7385757514b90770666a7"><td class="memItemLeft" align="right" valign="top"><a id="a9c08dab3fea7385757514b90770666a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>vfprintf</b> (stderr, fmt, vargs)</td></tr>
-<tr class="separator:a9c08dab3fea7385757514b90770666a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf291d1cbc7ad412983d8ac7ad8a87c"><td class="memItemLeft" align="right" valign="top"><a id="aeaf291d1cbc7ad412983d8ac7ad8a87c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>va_end</b> (vargs)</td></tr>
-<tr class="separator:aeaf291d1cbc7ad412983d8ac7ad8a87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27012783e3a9376282eb7638f1c7ddf4"><td class="memItemLeft" align="right" valign="top"><a id="a27012783e3a9376282eb7638f1c7ddf4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a27012783e3a9376282eb7638f1c7ddf4">CHECK_PRINTF_FMT</a> (1, 3) static inline void cprintf(const char *color</td></tr>
-<tr class="memdesc:a27012783e3a9376282eb7638f1c7ddf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Easy color printing. <br /></td></tr>
-<tr class="separator:a27012783e3a9376282eb7638f1c7ddf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef0ae6222e81df70fa1008cc8f475ce9"><td class="memItemLeft" align="right" valign="top"><a id="aef0ae6222e81df70fa1008cc8f475ce9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>vfprintf</b> (stdout, fmt, vargs)</td></tr>
-<tr class="separator:aef0ae6222e81df70fa1008cc8f475ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2422eb3cc6c390ecd86da17b4cd8f456"><td class="memItemLeft" align="right" valign="top"><a id="a2422eb3cc6c390ecd86da17b4cd8f456"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>printf</b> (ANSI_RESET)</td></tr>
-<tr class="separator:a2422eb3cc6c390ecd86da17b4cd8f456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9ada983108293c1a98cd3afa8e2b57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a> (FILE *stream)</td></tr>
+<tr class="memdesc:a8c9ada983108293c1a98cd3afa8e2b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">View the next character in stream, doesn't move pointer.  <a href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">More...</a><br /></td></tr>
+<tr class="separator:a8c9ada983108293c1a98cd3afa8e2b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceac3f282b0094593a25506231102cdf"><td class="memItemLeft" align="right" valign="top"><a id="aceac3f282b0094593a25506231102cdf"></a>
+wchar_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#aceac3f282b0094593a25506231102cdf">fpeek_wc</a> (FILE *stream)</td></tr>
+<tr class="memdesc:aceac3f282b0094593a25506231102cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>fpeek</code> but for wchar_t. <br /></td></tr>
+<tr class="separator:aceac3f282b0094593a25506231102cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa35245ecefc371cb7d7946224c0dca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a4fa35245ecefc371cb7d7946224c0dca">fspeek</a> (FILE *stream, long int offset, int position)</td></tr>
+<tr class="memdesc:a4fa35245ecefc371cb7d7946224c0dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">View a character at position without moving pointer; Peeks a seek.  <a href="io_8h.html#a4fa35245ecefc371cb7d7946224c0dca">More...</a><br /></td></tr>
+<tr class="separator:a4fa35245ecefc371cb7d7946224c0dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="memItemLeft" align="right" valign="top"><a id="a30c1cf02c1d1828c44f71835f04c2a1a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a">frpeek</a> (FILE *stream, char c)</td></tr>
+<tr class="memdesc:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes to end of line or EOF to get # of occurences. <br /></td></tr>
+<tr class="separator:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a752780317273fa671fc8e034b91ec394"><td class="memItemLeft" align="right" valign="top"><a id="a752780317273fa671fc8e034b91ec394"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a752780317273fa671fc8e034b91ec394">frdpeek</a> (FILE *stream, char d)</td></tr>
+<tr class="memdesc:a752780317273fa671fc8e034b91ec394"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes till the delimter <code>d</code>. <br /></td></tr>
+<tr class="separator:a752780317273fa671fc8e034b91ec394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256d510cd315f80885f2112ed4d76b43"><td class="memItemLeft" align="right" valign="top"><a id="a256d510cd315f80885f2112ed4d76b43"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a256d510cd315f80885f2112ed4d76b43">fcounts</a> (FILE *stream)</td></tr>
+<tr class="memdesc:a256d510cd315f80885f2112ed4d76b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character count of current line of buffer. <br /></td></tr>
+<tr class="separator:a256d510cd315f80885f2112ed4d76b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memItemLeft" align="right" valign="top"><a id="a7663b8ddbc6e91a00cb405e1eb87f5ea"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a> (FILE *dest, FILE *src)</td></tr>
+<tr class="memdesc:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>src</code> file tp <code>dest</code> file. <br /></td></tr>
+<tr class="separator:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af398ac0b139febc944bfaa37f937bfe5"><td class="memItemLeft" align="right" valign="top"><a id="af398ac0b139febc944bfaa37f937bfe5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fexists</b> (const char *file)</td></tr>
+<tr class="separator:af398ac0b139febc944bfaa37f937bfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b45ea4431bd23d08b9213ee428ff528"><td class="memItemLeft" align="right" valign="top"><a id="a5b45ea4431bd23d08b9213ee428ff528"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fmove</b> (const char *oldpath, char *newpath)</td></tr>
+<tr class="separator:a5b45ea4431bd23d08b9213ee428ff528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memItemLeft" align="right" valign="top"><a id="aee3479c2c0ec4f6b36f092b1e2ff57d5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sgets</b> (char *str, int n)</td></tr>
+<tr class="separator:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab30598e8fbba7ef75034c9af9d04c8e0"><td class="memItemLeft" align="right" valign="top"><a id="ab30598e8fbba7ef75034c9af9d04c8e0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>promptYesOrNo</b> (const char *question)</td></tr>
+<tr class="separator:ab30598e8fbba7ef75034c9af9d04c8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347bbf99a83f569354a42263b5b8d461"><td class="memItemLeft" align="right" valign="top"><a id="a347bbf99a83f569354a42263b5b8d461"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printb</b> (void const *const ptr)</td></tr>
+<tr class="separator:a347bbf99a83f569354a42263b5b8d461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60d27bd21ad163e70dfd9cf88ee998e2"><td class="memItemLeft" align="right" valign="top"><a id="a60d27bd21ad163e70dfd9cf88ee998e2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_PRINTF_FMT</b> (1, 2) void eprintf(const char *fmt</td></tr>
+<tr class="separator:a60d27bd21ad163e70dfd9cf88ee998e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7749d9db2729c7cc4cb5a082c9039c8"><td class="memItemLeft" align="right" valign="top"><a id="aa7749d9db2729c7cc4cb5a082c9039c8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_PRINTF_FMT</b> (1, 3) void cprintf(const char *color</td></tr>
+<tr class="separator:aa7749d9db2729c7cc4cb5a082c9039c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a381d684d94e6e91dee650357e8f02fa8"><td class="memItemLeft" align="right" valign="top"><a id="a381d684d94e6e91dee650357e8f02fa8"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fmt</b></td></tr>
 <tr class="separator:a381d684d94e6e91dee650357e8f02fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ca656eb6961a8c75898c897cb94acf"><td class="memItemLeft" align="right" valign="top">const char va_list&#160;</td><td class="memItemRight" valign="bottom"><b>vargs</b></td></tr>
-<tr class="separator:ad0ca656eb6961a8c75898c897cb94acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>New functions related to file handling and writing to stdout. </p>
 <dl class="section author"><dt>Author</dt><dd>yung-turabian </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>4 6 2024</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>BSD-3-Clause </dd></dl>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="ad0ca656eb6961a8c75898c897cb94acf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0ca656eb6961a8c75898c897cb94acf">&#9670;&nbsp;</a></span>vargs</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a8c9ada983108293c1a98cd3afa8e2b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9ada983108293c1a98cd3afa8e2b57">&#9670;&nbsp;</a></span>fpeek()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char va_list vargs</td>
+          <td class="memname">char fpeek </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        printf(<span class="stringliteral">&quot;%s&quot;</span>, color)</div>
-</div><!-- fragment -->
+
+<p>View the next character in stream, doesn't move pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>character. </dd></dl>
+
+</div>
+</div>
+<a id="a4fa35245ecefc371cb7d7946224c0dca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa35245ecefc371cb7d7946224c0dca">&#9670;&nbsp;</a></span>fspeek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char fspeek </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long int&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>View a character at position without moving pointer; Peeks a seek. </p>
+<dl class="section return"><dt>Returns</dt><dd>seeked and peeked character. </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->

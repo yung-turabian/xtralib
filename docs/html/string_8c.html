@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/hendog4eva/xtralib/src/string.c File Reference</title>
+<title>xtralib: /home/henry/xtralib/src/string.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,6 +78,7 @@ $(function() {
 <p>New functions and types related to string and string manipulation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">xtra/string.h</a>&gt;</code><br />
+<code>#include &lt;xtra/memory.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -108,12 +109,31 @@ wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcspcat</b> (wch
 <tr class="memitem:ae48725c17a84156f0f4a1df0d57c823d"><td class="memItemLeft" align="right" valign="top"><a id="ae48725c17a84156f0f4a1df0d57c823d"></a>
 wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wccat</b> (wchar_t *dest, const wchar_t src)</td></tr>
 <tr class="separator:ae48725c17a84156f0f4a1df0d57c823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7aca81bac01467af83e52bd6946877"><td class="memItemLeft" align="right" valign="top">wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a0f7aca81bac01467af83e52bd6946877">wcsrev</a> (wchar_t *str)</td></tr>
+<tr class="memdesc:a0f7aca81bac01467af83e52bd6946877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the wide character string.  <a href="string_8c.html#a0f7aca81bac01467af83e52bd6946877">More...</a><br /></td></tr>
+<tr class="separator:a0f7aca81bac01467af83e52bd6946877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f81fc722acdb36e7a2e7c9f7fd282e"><td class="memItemLeft" align="right" valign="top">wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a75f81fc722acdb36e7a2e7c9f7fd282e">wcspre</a> (wchar_t *str, wchar_t chr)</td></tr>
+<tr class="memdesc:a75f81fc722acdb36e7a2e7c9f7fd282e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends a character to a wide character string.  <a href="string_8c.html#a75f81fc722acdb36e7a2e7c9f7fd282e">More...</a><br /></td></tr>
+<tr class="separator:a75f81fc722acdb36e7a2e7c9f7fd282e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746dbd882241062e4d55d224d5deafef"><td class="memItemLeft" align="right" valign="top"><a id="a746dbd882241062e4d55d224d5deafef"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>strpre</b> (char *str, char chr)</td></tr>
+<tr class="separator:a746dbd882241062e4d55d224d5deafef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba09fe31c3b5db03bc53355045c55a82"><td class="memItemLeft" align="right" valign="top"><a id="aba09fe31c3b5db03bc53355045c55a82"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>strpres</b> (char *str, char *pre)</td></tr>
+<tr class="separator:aba09fe31c3b5db03bc53355045c55a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c7776d446440295faf9fc6e5e11b29"><td class="memItemLeft" align="right" valign="top"><a id="a78c7776d446440295faf9fc6e5e11b29"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcspres</b> (wchar_t *str, wchar_t *pre)</td></tr>
+<tr class="separator:a78c7776d446440295faf9fc6e5e11b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d91c9609b5e95580c9fd884e7a23bc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4">strchrn</a> (const char *string, char ch)</td></tr>
 <tr class="memdesc:a6d91c9609b5e95580c9fd884e7a23bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of times that <code>ch</code> appears in <code>string</code>.  <a href="string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4">More...</a><br /></td></tr>
 <tr class="separator:a6d91c9609b5e95580c9fd884e7a23bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a> (const wchar_t *string, wchar_t ch)</td></tr>
 <tr class="memdesc:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Wide-char variant) Get number of times that <code>ch</code> appears in <code>string</code>.  <a href="string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22">More...</a><br /></td></tr>
 <tr class="separator:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f15594659fd9c707967c608eca7c5e8"><td class="memItemLeft" align="right" valign="top"><a id="a3f15594659fd9c707967c608eca7c5e8"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a3f15594659fd9c707967c608eca7c5e8">iswcsdigit</a> (wchar_t *string)</td></tr>
+<tr class="memdesc:a3f15594659fd9c707967c608eca7c5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms that wcstring is entirely composed on numbers. <br /></td></tr>
+<tr class="separator:a3f15594659fd9c707967c608eca7c5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7e483076865c58e998633015249737"><td class="memItemLeft" align="right" valign="top"><a id="a7f7e483076865c58e998633015249737"></a>
 long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char *str)</td></tr>
 <tr class="separator:a7f7e483076865c58e998633015249737"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -304,6 +324,58 @@ long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char 
 
 <p>Checks to see if <code>string</code> contains only characters in <code>charset</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>string if true, NULL if a unexpected character is found. </dd></dl>
+
+</div>
+</div>
+<a id="a75f81fc722acdb36e7a2e7c9f7fd282e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f81fc722acdb36e7a2e7c9f7fd282e">&#9670;&nbsp;</a></span>wcspre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wchar_t* wcspre </td>
+          <td>(</td>
+          <td class="paramtype">wchar_t *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wchar_t&#160;</td>
+          <td class="paramname"><em>chr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepends a character to a wide character string. </p>
+<dl class="section return"><dt>Returns</dt><dd>on success return string. </dd></dl>
+
+</div>
+</div>
+<a id="a0f7aca81bac01467af83e52bd6946877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f7aca81bac01467af83e52bd6946877">&#9670;&nbsp;</a></span>wcsrev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wchar_t* wcsrev </td>
+          <td>(</td>
+          <td class="paramtype">wchar_t *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reverses the wide character string. </p>
+<dl class="section return"><dt>Returns</dt><dd>on success return string. </dd></dl>
 
 </div>
 </div>

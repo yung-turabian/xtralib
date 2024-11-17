@@ -39,8 +39,7 @@ typedef void (*deferred_function)(void);
  * @brief A safer atexit() function, borrows the returns
  * @return 
  */
-static inline int
-defer(deferred_function func)
+static inline int defer(deferred_function func)
 {
 		int ret;
 		if((ret = atexit(func)) == 0)
