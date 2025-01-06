@@ -1,5 +1,5 @@
-#ifndef __XTRA_RAND_H__
-#define __XTRA_RAND_H__
+#ifndef __REISLIB_RAND_H__
+#define __REISLIB_RAND_H__
 
 #include <time.h>
 #include <stdlib.h>
@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define XTRA_INT_MAX 2147483647
+#define REISLIB_INT_MAX 2147483647
 
 #define CHARSET "abcdefghijklmnopqrstuvwxyz"
 #define CHARSET_LEN 26
@@ -61,7 +61,7 @@ unix_rng(size_t lb, size_t ub)
  */
 static inline int 
 randi() {
-		return (int)rng(0, XTRA_INT_MAX-1);
+		return (int)rng(0, REISLIB_INT_MAX-1);
 }
 
 static inline int 

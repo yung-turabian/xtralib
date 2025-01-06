@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#ifndef __XTRA_DATASTRUCTURES_H__
-#define __XTRA_DATASTRUCTURES_H__
+#ifndef __REISLIB_DATASTRUCTURES_H__
+#define __REISLIB_DATASTRUCTURES_H__
 
 #include <string.h>
 #include <stdio.h>

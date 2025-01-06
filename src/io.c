@@ -7,7 +7,7 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/io.h>
+#include <reis/io.h>
 
 /* FILE HANDLING
 =================*/
@@ -118,7 +118,7 @@ int fcounts(FILE *stream)
 }
 
 /**
- * @brief Copies data from `src` file tp `dest` file.
+ * @brief Copies data from `src` file to `dest` file.
  */
 int fcopy(FILE *dest, FILE *src) 
 {
@@ -130,39 +130,101 @@ int fcopy(FILE *dest, FILE *src)
 	return 1;
 }
 
+/**
+ * @brief Return file extension.
+ */
+char *_fext(const char *filename) {
+		char *dot = strchr(filename, '.');
+		if(!dot || dot == filename) return "";
+		return dot + 1;
+}
 
-int fmove(const char *oldpath, char *newpath)
+char *_extractFileName(char *path) 
 {
-  char new_name[100];
-  int copy_num = 0;
-  
-  if(fexists(newpath) == 0) {
-    strcpy(new_name, newpath);
-    while(fexists(new_name) == 0) {
+		char *file;
+		char *tPath = (char*)malloc(sizeof(char) * strlen(path));
+
+		strncpy(tPath, path, strlen(path));
+
+		file = strtok(tPath, "/");
+
+		while(file != NULL) 
+		{
+				file = strtok(NULL, "/");
+
+				char *nextFile;
+				nextFile = strtok(NULL, "/");
+				if(nextFile == NULL) {
+						break;
+				}
+		}
+
+		free(tPath);
+
+		return file;
+}
+
+/**
+ * @brief Move data from `oldpath` file to `newpath.`
+ */
+bool fmove(char *oldpath, char *newpath)
+{
+  char file_name[256];
+	char ext[256];
+
+  char new_name[256];
+  int copy_num = 1;
+
+	char *_oldpath = (char*)malloc(sizeof(char) * strlen(oldpath));
+	strncpy(_oldpath, oldpath, strlen(oldpath));
+
+  strcpy(file_name, 
+					_extractFileName(strtok(_oldpath, ".")));
+		
+	strcpy(ext, _fext(oldpath));
+
+	strcpy(new_name, newpath);
+  strncat(new_name, file_name, strlen(file_name));
+	strncat(new_name, ".", 2);
+	strncat(new_name, ext, strlen(ext));
+
+  if(fexists(new_name)) 
+	{
+
+    while(fexists(new_name)) 
+		{
 		  strcpy(new_name, newpath);
-      sprintf(new_name + strlen(new_name), " (%d)", ++copy_num);
+		  strncat(new_name, file_name, strlen(file_name));
+
+      sprintf(
+							new_name + strlen(new_name), 
+							"_%d", 
+							copy_num++
+							);
+
+	    strncat(new_name, ".", 2);
+	    strncat(new_name, ext, strlen(ext));
     }
 
-      if(copy_num != 0) {
-      	fprintf(stdout, "Renaming file: '%s' -> '%s'\n", oldpath, new_name);
-				strcpy(newpath, new_name);
-      }
   }
-  
-  if(rename(oldpath, newpath) == 0) {
-    return 0;
+
+  if(rename(oldpath, new_name) == 0) {
+    return true;
 	} else {
     perror("fmove() error on attempts to rename");
-    return -1;
+    return false;
   }
 }
 
-int fexists(const char *file)
+/**
+ * @brief Move data from `oldpath` file to `newpath.`
+ */
+bool fexists(const char *file)
 {
   if(access(file, F_OK) == 0) {
-    return 0;
+    return true;
   } else {
-    return -1;
+    return false;
   }
 }
 
@@ -209,23 +271,6 @@ bool promptYesOrNo(const char *question)
 
 /* STDOUT
 ==========*/
-
-// WIP
-// Print a number in binary format
-void printb(void const * const ptr) 
-{
-	u8 *b = (u8*) ptr;
-	u8 byte;
-	int i, j;
-	
-  for (i = 0; i >= 0; i--) {
-      for (j = 7; j >= 0; j--) {
-          byte = (b[i] >> j) & 1;
-          printf("%u", byte);
-      }
-  }
-}
-
 
 
 /**

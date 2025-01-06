@@ -2,12 +2,12 @@
  * @file raylib.h
  * @author yung-turabian
  * @date 4 19 2024
- * @brief Some extras for Raylib programs.
+ * @brief Some ereiss for Raylib programs.
  * 
  * @copyright BSD-3-Clause
  */
-#ifndef __XTRA_RAYLIB_H__
-#define __XTRA_RAYLIB_H__
+#ifndef __REISLIB_RAYLIB_H__
+#define __REISLIB_RAYLIB_H__
 
 #if defined __has_include
 #	if __has_include (<raylib.h>)

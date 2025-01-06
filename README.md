@@ -1,7 +1,6 @@
-# xtralibs 
+# hwlib
 
-<img src="xtralib_logo.png" alt="xtralbs" width="200"/>
 
 # About
 
-Some useful little functions for C/C++.
+Provides some useful functions & data structures for C/C++.

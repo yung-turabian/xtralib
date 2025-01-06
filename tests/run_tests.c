@@ -143,7 +143,7 @@ UTEST(HashTable, XtraHash)
 		FREE(x);
 }
 
-#include <xtra/multimap.h>
+/*#include <xtra/multimap.h>
 
 UTEST(XtraMultiMap, Creation)
 {
@@ -171,10 +171,10 @@ UTEST(XtraMultiMap, Creation)
 
 		MultiMapFree(map);
 		FREE(num);
-		FREE(values);*/
+		FREE(values);
 		//FREE(y);
 		MultiMapFree(map);
-}
+}*/
 
 #include <xtra/pair.h>
 

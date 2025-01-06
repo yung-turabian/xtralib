@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/hash.h>
-#include <xtra/memory.h>
+#include <reis/hash.h>
+#include <reis/memory.h>
 
 static const char * HashTableSetEntry_str(HashTableEntry *entries, size_t capacity, const char *key, void *value, size_t *plength);
 static const wchar_t * HashTableSetEntry_wcs(HashTableEntry *entries, size_t capacity, const wchar_t *key, void *value, size_t *plength);
@@ -26,7 +26,7 @@ HashTable * HashTableInit()
 				return NULL;
 
 		table->length = 0;
-		table->capacity = XTRA_HASHTABLE_INITIAL_CAPACITY;
+		table->capacity = REISLIB_HASHTABLE_INITIAL_CAPACITY;
 
 
 		// alloc (zero'd) space for empty buckets
@@ -62,10 +62,10 @@ void HashTableTerminate(HashTable *table)
 // Real simple and fast
 static u64 HashKey_str(const char *key)
 {
-		u64 hash = XTRA_HASH_FNV_OFFSET;
+		u64 hash = REISLIB_HASH_FNV_OFFSET;
 		for(const char *p = key; *p; p++) {
 				hash ^= (u64)(unsigned char)(*p);
-				hash *= XTRA_HASH_FNV_PRIME;
+				hash *= REISLIB_HASH_FNV_PRIME;
 		}
 
 		return hash;
@@ -73,10 +73,10 @@ static u64 HashKey_str(const char *key)
 
 static u64 HashKey_wcs(const wchar_t *key)
 {
-		u64 hash = XTRA_HASH_FNV_OFFSET;
+		u64 hash = REISLIB_HASH_FNV_OFFSET;
 		for(const wchar_t *p = key; *p; p++) {
 				hash ^= (u64)(wchar_t)(*p);
-				hash *= XTRA_HASH_FNV_PRIME;
+				hash *= REISLIB_HASH_FNV_PRIME;
 		}
 
 		return hash;

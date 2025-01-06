@@ -6,12 +6,12 @@ EMAR = emar
 CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11
 EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread -I/usr/local/include 
 SRC_DIR = src
-INC_DIR = include/xtra
+INC_DIR = include/reis
 OBJ_DIR = obj
 BIN_DIR = bin
 LIB_DIR = lib
 TESTS_DIR = tests
-LIB_NAME = libxtra.a
+LIB_NAME = libreis.a
 LIB_PATH1 = /usr/local/lib
 LIB_PATH2 = /usr/lib
 INC_PATH = /usr/local/include
@@ -71,7 +71,7 @@ endif
 uninstall:
 	rm -f $(LIB_PATH1)/$(LIB_NAME)
 	rm -f $(LIB_PATH2)/$(LIB_NAME)
-	rm -rf $(INC_PATH)/xtra
+	rm -rf $(INC_PATH)/reis
 
 clean:
 	rm -rf $(OBJ_DIR) $(LIB_DIR)

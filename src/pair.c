@@ -1,6 +1,6 @@
-#include <xtra/pair.h>
+#include <reis/pair.h>
 
-#include <xtra/memory.h>
+#include <reis/memory.h>
 
 Pair * PairCreate(wchar_t *first, wchar_t *second)
 {

@@ -11,8 +11,8 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/multimap.h>
-#include <xtra/memory.h>
+#include <reis/multimap.h>
+#include <reis/memory.h>
 
 MultiMap * MultiMapInit()
 {

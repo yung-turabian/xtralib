@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/string.h>
-#include <xtra/memory.h>
+#include <reis/string.h>
+#include <reis/memory.h>
 
 
 /**
@@ -323,12 +323,27 @@ int wcswcn(const wchar_t *string, wchar_t ch)
  *	@brief Confirms that wcstring is entirely composed on numbers.
  *
  */
-wchar_t *iswcsdigit(wchar_t *string) {
-		for(wchar_t *wc = string; *wc != L'\0'; wc++) {
+wchar_t *wcsisdigit(wchar_t *str) 
+{
+		for(wchar_t *wc = str; *wc != L'\0'; wc++) {
 				if(!iswdigit(*wc))
 						return NULL;
 		}
-		return string;
+		return str;
+}
+
+
+/**
+ *	@brief Confirms that string is entirely composed on numbers.
+ *
+ */
+char *strisdigit(char *str) 
+{
+		for(char *c = str; *c != '\0'; c++) {
+				if(!isdigit(*c))
+						return NULL;
+		}
+		return str;
 }
 
 // useful for switch statements with strings

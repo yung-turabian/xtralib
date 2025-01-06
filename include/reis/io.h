@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#ifndef __XTRA_IO_H__
-#define __XTRA_IO_H__
+#ifndef __REISLIB_IO_H__
+#define __REISLIB_IO_H__
 
 #include "common.h"
 
@@ -47,8 +47,6 @@
 extern "C" {
 #endif
 
-typedef uint8_t u8;
-
 
 /* FILE HANDLING
 =================*/
@@ -67,9 +65,9 @@ int fcounts(FILE *stream);
 
 int fcopy(FILE *dest, FILE *src);
 
-int fexists(const char *file);
+bool fexists(const char *file);
 
-int fmove(const char *oldpath, char *newpath);
+bool fmove(char *oldpath, char *newpath);
 
 
 /* STDIN
@@ -82,9 +80,6 @@ bool promptYesOrNo(const char *question);
 
 /* STDOUT
 ==========*/
-
-// WIP
-void printb(void const * const ptr);
 
 
 CHECK_PRINTF_FMT(1, 2) void eprintf(const char *fmt, ...);

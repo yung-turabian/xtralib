@@ -3,11 +3,11 @@
  *
  *
  */
-#ifndef __XTRA_PAIR_H__
-#define __XTRA_PAIR_H__
+#ifndef __REISLIB_PAIR_H__
+#define __REISLIB_PAIR_H__
 
 #include <stdlib.h>
-#include <xtra/common.h>
+#include <reis/common.h>
 #include <wchar.h>
 
 typedef struct {

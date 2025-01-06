@@ -1,9 +1,9 @@
-#include <xtra/math.h>
+#include <reis/math.h>
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <xtra/memory.h>
+#include <reis/memory.h>
 
 // Matrix, WIP
 typedef struct {

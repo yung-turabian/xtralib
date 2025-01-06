@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/trie.h>
-#include <xtra/memory.h>
+#include <reis/trie.h>
+#include <reis/memory.h>
 
 TrieNode * TrieNodeInit(wchar_t data, int numOfLetters)
 {

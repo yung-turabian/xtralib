@@ -1,13 +1,13 @@
-#ifndef __XTRA_HASH_H__
-#define __XTRA_HASH_H__
+#ifndef __REISLIB_HASH_H__
+#define __REISLIB_HASH_H__
 
-#include <xtra/common.h>
+#include <reis/common.h>
 #include <string.h>
 #include <wchar.h>
 
-#define XTRA_HASHTABLE_INITIAL_CAPACITY 16
-#define XTRA_HASH_FNV_OFFSET 14695981039346656037UL
-#define XTRA_HASH_FNV_PRIME 1099511628211UL
+#define REISLIB_HASHTABLE_INITIAL_CAPACITY 16
+#define REISLIB_HASH_FNV_OFFSET 14695981039346656037UL
+#define REISLIB_HASH_FNV_PRIME 1099511628211UL
 
 typedef struct {
 		enum XStringType {

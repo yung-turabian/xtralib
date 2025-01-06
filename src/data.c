@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#include <xtra/data.h>
-#include <xtra/memory.h>
+#include <reis/data.h>
+#include <reis/memory.h>
 
 // VEC2
 

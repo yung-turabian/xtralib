@@ -7,13 +7,13 @@
  * @copyright BSD-3-Clause
  */
 
-#ifndef __XTRA_TRIE_H__
-#define __XTRA_TRIE_H__
+#ifndef __REISLIB_TRIE_H__
+#define __REISLIB_TRIE_H__
 
 // Default to English
 static int xtTrieNumOfLetters = 26;
 
-#include <xtra/common.h>
+#include <reis/common.h>
 
 #include <string.h>
 #include <stdio.h>

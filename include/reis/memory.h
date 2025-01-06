@@ -1,5 +1,5 @@
-#ifndef XTRA_MEMORY_H
-#define XTRA_MEMORY_H
+#ifndef REISLIB_MEMORY_H
+#define REISLIB_MEMORY_H
 
 #include <stdlib.h>
 #include <string.h>

@@ -7,8 +7,8 @@
  * @copyright BSD-3-Clause
  */
 
-#ifndef __XTRA_MULTIMAP_H__
-#define __XTRA_MULTIMAP_H__
+#ifndef __REISLIB_MULTIMAP_H__
+#define __REISLIB_MULTIMAP_H__
 
 #include <string.h>
 #include <stdio.h>

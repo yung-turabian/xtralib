@@ -1,14 +1,15 @@
 /**
- * @file xtra.h
+ * @file reis.h
  * @author yung-turabian
  * @date 4 8 2024
  * @brief Shared typedefs and functions.
  */
-#ifndef __XTRA_COMMMON_H__
-#define __XTRA_COMMMON_H__
+#ifndef __REISLIB_COMMMON_H__
+#define __REISLIB_COMMMON_H__
 
 #include <stdlib.h>
 #include <stdint.h>
+
 
 typedef uint8_t u8;
 typedef uint16_t u16;
@@ -25,10 +26,10 @@ typedef double  f64;
 #if !defined(__cplusplus)
 		#if !defined(bool) 
 				typedef enum __attribute__((__packed__)) {false, true} bool;
-		#else
-				typedef enum __attribute__((__packed__)) {xfalse, xtrue} xtra_bool;
 		#endif
 #endif
+
+
 
 // utility macro for `defer(1)`
 #define fnname(name) #name
@@ -36,8 +37,8 @@ typedef double  f64;
 typedef void (*deferred_function)(void);
 
 /**
- * @brief A safer atexit() function, borrows the returns
- * @return 
+ * @brief An atexit() wrapper function
+ * @return bool
  */
 static inline int defer(deferred_function func)
 {

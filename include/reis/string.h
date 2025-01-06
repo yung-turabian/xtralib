@@ -6,8 +6,8 @@
  * 
  * @copyright BSD-3-Clause
  */
-#ifndef __XTRA_STRING_H__
-#define __XTRA_STRING_H__
+#ifndef __REISLIB_STRING_H__
+#define __REISLIB_STRING_H__
 
 #include <string.h>
 #include <stdlib.h>
@@ -17,6 +17,7 @@
 #elif defined(__linux__)
 #include <wchar.h>
 #include <wctype.h>
+#include <ctype.h>
 #endif
 
 #define MAX_CHARSET_SIZE 256
@@ -47,12 +48,18 @@ int wcswcn(const wchar_t *string, wchar_t ch);
 
 
 wchar_t * wcsrev(wchar_t *str);
+
+
 char * strpre(char *str, char chr);
 wchar_t * wcspre(wchar_t *str, wchar_t chr);
+
+
 char * strpres(char *str, char* pre);
 wchar_t * wcspres(wchar_t *str, wchar_t *pre);
 
-wchar_t *iswcsdigit(wchar_t *string);
+
+char *strisdigit(char *str);
+wchar_t *wcsisdigit(wchar_t *str);
 
 
 long hash(const char* str);
