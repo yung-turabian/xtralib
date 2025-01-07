@@ -2,15 +2,15 @@
 
 #include <signal.h>
 
-#include <xtra/string.h>
+#include <reis/string.h>
 
-#include <xtra/memory.h>
+#include <reis/memory.h>
 
-#include <xtra/trie.h>
-#include <xtra/io.h>
+#include <reis/trie.h>
+#include <reis/io.h>
 #include <pthread.h>
-#include <xtra/hash.h>
-#include <xtra/raylib.h>
+#include <reis/hash.h>
+#include <reis/raylib.h>
 
 /*struct TestFixture {
 		char *str;
@@ -24,7 +24,7 @@ UTEST_F_SETUP(TestFixture)
 		EXPECT_TRUE(true);
 }*/
 
-UTEST(XtraString, chrcat) 
+UTEST(reisString, chrcat) 
 {
 		char str[13] = "Hello World";
 		ASSERT_STREQ("Hello World!", chrcat(str, '!'));
@@ -41,7 +41,7 @@ UTEST(XtraString, chrcat)
 		
 }
 
-UTEST(XtraString, strcov) 
+UTEST(reisString, strcov) 
 {
 		char str[13] = "Hello World";
 		char chrset[8] = "elWd";
@@ -49,7 +49,7 @@ UTEST(XtraString, strcov)
 		ASSERT_STREQ("Hello World", strcov(str, chrset));
 }
 
-UTEST(XtraIO, fpeek) 
+UTEST(reisIO, fpeek) 
 {
 		FILE *fp = fopen("test.txt", "w");
 		ASSERT_TRUE(fp);
@@ -57,7 +57,23 @@ UTEST(XtraIO, fpeek)
 
 }
 
-UTEST(XtraTrie, Creation)
+UTEST(reisIO, filesystem_t)
+{
+	filesystem_t *fs = filesystem("/home/henry/test.txt");
+
+	ASSERT_STREQ(fs->path, "/home/henry/test.txt");
+
+	ASSERT_STREQ(fs->filename, "test.txt");
+
+	ASSERT_STREQ(fs->extension, "txt");
+
+	ASSERT_STREQ(fs->stem, "test");
+
+	filesystem_kill( fs );
+}
+
+
+UTEST(reisTrie, Creation)
 {
 		TrieNode *root = TrieNodeInit(L'\0', 26);
 		root = TrieInsert(root, L"hello");
@@ -72,7 +88,7 @@ UTEST(XtraTrie, Creation)
 		TrieNodeFree(root);
 }
 
-UTEST(XtraMemory, MALLOC)
+UTEST(reisMemory, MALLOC)
 {
 		int *x = (int*)MALLOC(sizeof(int));
 		*x = 10;
@@ -82,7 +98,7 @@ UTEST(XtraMemory, MALLOC)
 		FREE(x);
 }
 
-UTEST(XtraMemory, CALLOC)
+UTEST(reisMemory, CALLOC)
 {
 		int n = 5;
 		int *array;
@@ -96,7 +112,7 @@ UTEST(XtraMemory, CALLOC)
 		FREE(array);
 }
 
-UTEST(XtraMemory, MGET)
+UTEST(reisMemory, MGET)
 {
 		u32 *x = (u32*)MALLOC(sizeof(u32));
 
@@ -105,7 +121,7 @@ UTEST(XtraMemory, MGET)
 		FREE(x);
 }
 
-UTEST(XtraMemory, REALLOC)
+UTEST(reisMemory, REALLOC)
 {
 		u32 *x = (u32*)MALLOC(sizeof(u32));
 
@@ -118,7 +134,7 @@ UTEST(XtraMemory, REALLOC)
 		FREE(y);
 }
 
-UTEST(HashTable, XtraHash)
+UTEST(HashTable, reisHash)
 {
 		HashTable *tab = HashTableInit();
 		int *x = (int*)MALLOC(sizeof(int));
@@ -143,9 +159,9 @@ UTEST(HashTable, XtraHash)
 		FREE(x);
 }
 
-/*#include <xtra/multimap.h>
+/*#include <reis/multimap.h>
 
-UTEST(XtraMultiMap, Creation)
+UTEST(reisMultiMap, Creation)
 {
 		MultiMap *map = MultiMapInit();
 		MultiMapInsert(map, L"j", L"b", sizeof(wchar_t) * 2);
@@ -176,16 +192,16 @@ UTEST(XtraMultiMap, Creation)
 		MultiMapFree(map);
 }*/
 
-#include <xtra/pair.h>
+#include <reis/pair.h>
 
-UTEST(XtraPair, Creation)
+UTEST(reisPair, Creation)
 {
 		Pair *par = PairCreate(L"a", L"b");
 		
 		PairFree(par);
 }
 
-UTEST(XtraString, strpre)
+UTEST(reisString, strpre)
 {
 		char str[5] = "bc";
 		strpre(str, 'a');
@@ -193,7 +209,7 @@ UTEST(XtraString, strpre)
 		ASSERT_STREQ("abc", str);
 }
 
-UTEST(XtraString, strpres)
+UTEST(reisString, strpres)
 {
 		char str[5] = "cd";
 		strpres(str, "ab");
@@ -201,7 +217,7 @@ UTEST(XtraString, strpres)
 		ASSERT_STREQ("abcd", str);
 }
 
-UTEST(XtraString, wcspres)
+UTEST(reisString, wcspres)
 {
 		wchar_t str[5] = L"cd";
 		wcspres(str, L"ab");
@@ -209,14 +225,14 @@ UTEST(XtraString, wcspres)
 		ASSERT_EQ(0, wcscmp(L"abcd", str));
 }
 
-UTEST(XtraMemory, HeapCheck)
+UTEST(reisMemory, HeapCheck)
 {
 		ASSERT_EQ(0, (int)mget_all());
 }
 
 #if defined(RAYLIB)
 
-UTEST(DrawDashedLine, XtraRaylib)
+UTEST(DrawDashedLine, reisRaylib)
 {
 		SetTraceLogLevel(LOG_ERROR);
 		InitWindow(600, 600, "test");

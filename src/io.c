@@ -16,7 +16,7 @@
  *	@brief View the next character in stream, doesn't move pointer.
  *	@return character.
  */
-char fpeek(FILE *stream) 
+char fpeek( FILE *stream )
 { 
 		char c = fgetc(stream); 
 		ungetc(c, stream); 
@@ -27,7 +27,7 @@ char fpeek(FILE *stream)
  *	@brief Same as `fpeek` but for wchar_t.
  *
  */
-wchar_t fpeek_wc(FILE *stream) 
+wchar_t fpeek_wc( FILE *stream )
 { 
 		wchar_t c = fgetwc(stream); 
 		ungetwc(c, stream); 
@@ -38,7 +38,7 @@ wchar_t fpeek_wc(FILE *stream)
  *	@brief View a character at position without moving pointer; Peeks a seek.
  *	@return seeked and peeked character.
  */
-char fspeek(FILE *stream, long int offset, int position) 
+char fspeek( FILE *stream, long int offset, int position )
 {
 	char c;
 	fpos_t original_position;
@@ -57,7 +57,7 @@ char fspeek(FILE *stream, long int offset, int position)
  * @brief A recursive peek that goes to end of line or EOF
  * to get # of occurences.
  */
-int frpeek(FILE *stream, char c) 
+int frpeek( FILE *stream, char c )
 {
 	int count = 0;
 	char cc = c;
@@ -78,7 +78,7 @@ int frpeek(FILE *stream, char c)
 /** 
  * @brief A recursive peek that goes till the delimter `d`.
  */
-int frdpeek(FILE *stream, char d) 
+int frdpeek( FILE *stream, char d )
 {
 	int count = 0;
 	char c = '\0';
@@ -102,7 +102,7 @@ int frdpeek(FILE *stream, char d)
 /**
  * @brief Character count of current line of buffer.
  */
-int fcounts(FILE *stream) 
+int fcounts( FILE *stream )
 {
 	int ch, count; 
 	fpos_t original_position; 
@@ -120,7 +120,7 @@ int fcounts(FILE *stream)
 /**
  * @brief Copies data from `src` file to `dest` file.
  */
-int fcopy(FILE *dest, FILE *src) 
+int fcopy( FILE *dest, FILE *src )
 {
 	int c;
 	if(ftell(src) != 0) fseek(src, 0, SEEK_SET); //reset pos
@@ -130,90 +130,87 @@ int fcopy(FILE *dest, FILE *src)
 	return 1;
 }
 
+
 /**
  * @brief Return file extension.
  */
-char *_fext(const char *filename) {
+char *fext( const char *filename )
+{
 		char *dot = strchr(filename, '.');
 		if(!dot || dot == filename) return "";
 		return dot + 1;
 }
 
-char *_extractFileName(char *path) 
+/**
+ * @brief Return filename.
+ */
+char *ffilename( const char *path )
 {
-		char *file;
-		char *tPath = (char*)malloc(sizeof(char) * strlen(path));
+	char* path_copy = strdup(path);
+    const char delim[] = "/";
+    char* file;
+	char* last;
 
-		strncpy(tPath, path, strlen(path));
+    file = strtok( path_copy, delim );
 
-		file = strtok(tPath, "/");
+    while ( file != NULL )
+    {
+		last = strdup( file );
+        file = strtok( NULL, delim );
+    }
 
-		while(file != NULL) 
-		{
-				file = strtok(NULL, "/");
+    free(path_copy);
 
-				char *nextFile;
-				nextFile = strtok(NULL, "/");
-				if(nextFile == NULL) {
-						break;
-				}
-		}
-
-		free(tPath);
-
-		return file;
+	return last;
 }
+
+
 
 /**
  * @brief Move data from `oldpath` file to `newpath.`
  */
-bool fmove(char *oldpath, char *newpath)
+bool fmove( char *oldpath, char *newpath )
 {
-  char file_name[256];
-	char ext[256];
+	filesystem_t* fs = filesystem( oldpath );
 
-  char new_name[256];
-  int copy_num = 1;
+	char new_name[256] = {'\0'};
+	int copy_num = 1;
 
-	char *_oldpath = (char*)malloc(sizeof(char) * strlen(oldpath));
-	strncpy(_oldpath, oldpath, strlen(oldpath));
 
-  strcpy(file_name, 
-					_extractFileName(strtok(_oldpath, ".")));
-		
-	strcpy(ext, _fext(oldpath));
+	printf("%s\n", fs->filename);
+
+
 
 	strcpy(new_name, newpath);
-  strncat(new_name, file_name, strlen(file_name));
-	strncat(new_name, ".", 2);
-	strncat(new_name, ext, strlen(ext));
+	strncat(new_name, fs->filename, strlen(fs->filename));
 
-  if(fexists(new_name)) 
-	{
 
-    while(fexists(new_name)) 
+
+	if ( fexists(new_name) ) {
+
+		while ( fexists(new_name) )
 		{
-		  strcpy(new_name, newpath);
-		  strncat(new_name, file_name, strlen(file_name));
+			strcpy( new_name, newpath );
+			strncat( new_name, fs->stem, strlen(fs->stem) );
 
-      sprintf(
-							new_name + strlen(new_name), 
-							"_%d", 
-							copy_num++
-							);
+			sprintf(
+					new_name + strlen(new_name),
+					"_%d",
+					copy_num++
+					);
 
-	    strncat(new_name, ".", 2);
-	    strncat(new_name, ext, strlen(ext));
-    }
+			strncat( new_name, ".", 2 );
+			strncat( new_name, fs->extension, strlen(fs->extension) );
+		}
 
-  }
+	}
 
-  if(rename(oldpath, new_name) == 0) {
-    return true;
+	if ( rename(oldpath, new_name) == 0 ) {
+		return true;
 	} else {
-    perror("fmove() error on attempts to rename");
-    return false;
-  }
+		perror("fmove() error on attempts to rename");
+		return false;
+	}
 }
 
 /**
@@ -299,3 +296,29 @@ cprintf(const char * color, const char * fmt, ...)
 		printf(ANSI_RESET);
 }
 
+
+/* filesystem_t functions
+===========*/
+
+filesystem_t* filesystem(char* path)
+{
+	filesystem_t *fs = (filesystem_t*)malloc( sizeof(filesystem_t) );
+
+
+	//fs->path = (char*)malloc( sizeof(char) * (strlen(path) + 1) );
+	fs->path = strdup( path );
+
+	fs->filename = ffilename( path );
+
+	fs->extension = fext( fs->filename );
+
+	char* stem = strdup( fs->filename );
+	fs->stem = strtok( stem, "." );
+
+    return fs;
+}
+
+void filesystem_kill(filesystem_t* fs)
+{
+	free( fs );
+}

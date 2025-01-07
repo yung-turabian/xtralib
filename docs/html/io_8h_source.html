@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/henry/xtralib/include/xtra/io.h Source File</title>
+<title>reislib: /home/henry/Development/reislib/include/reis/io.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="dox_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">xtralib
+   <div id="projectname">reislib
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A simple header-based drop-in library</div>
@@ -64,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d682225e81a109a149d04d8b00d08999.html">xtra</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_bf64182115cd8a46cad5a2ea525d66ee.html">reis</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,8 +72,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="io_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __XTRA_IO_H__</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __XTRA_IO_H__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __REISLIB_IO_H__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __REISLIB_IO_H__</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;common.h&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
@@ -113,61 +112,58 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> uint8_t u8;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* FILE HANDLING</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">=================*/</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">char</span> <a class="code" href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a>(FILE *stream);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">wchar_t</span> <a class="code" href="io_8h.html#aceac3f282b0094593a25506231102cdf">fpeek_wc</a>(FILE *stream);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/* FILE HANDLING</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">=================*/</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">char</span> <a class="code" href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a>(FILE *stream);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">wchar_t</span> <a class="code" href="io_8h.html#aceac3f282b0094593a25506231102cdf">fpeek_wc</a>(FILE *stream);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">char</span> <a class="code" href="io_8h.html#a4fa35245ecefc371cb7d7946224c0dca">fspeek</a>(FILE *stream, <span class="keywordtype">long</span> <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> position);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">char</span> <a class="code" href="io_8h.html#a4fa35245ecefc371cb7d7946224c0dca">fspeek</a>(FILE *stream, <span class="keywordtype">long</span> <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> position);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a">frpeek</a>(FILE *stream, <span class="keywordtype">char</span> c);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a">frpeek</a>(FILE *stream, <span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a752780317273fa671fc8e034b91ec394">frdpeek</a>(FILE *stream, <span class="keywordtype">char</span> d) ;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a752780317273fa671fc8e034b91ec394">frdpeek</a>(FILE *stream, <span class="keywordtype">char</span> d) ;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a256d510cd315f80885f2112ed4d76b43">fcounts</a>(FILE *stream);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a256d510cd315f80885f2112ed4d76b43">fcounts</a>(FILE *stream);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a>(FILE *dest, FILE *src);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">int</span> <a class="code" href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a>(FILE *dest, FILE *src);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="io_8h.html#a309a29a7485ecabf1d76fdab20cdc54a">fexists</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *file);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">int</span> fexists(<span class="keyword">const</span> <span class="keywordtype">char</span> *file);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="io_8h.html#a6e1471d79f8d536aa18666ceea1e8ac2">fmove</a>(<span class="keywordtype">char</span> *oldpath, <span class="keywordtype">char</span> *newpath);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">int</span> fmove(<span class="keyword">const</span> <span class="keywordtype">char</span> *oldpath, <span class="keywordtype">char</span> *newpath);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/* STDIN</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">========*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/* STDIN</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">========*/</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> sgets(<span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> n);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> sgets(<span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">bool</span> promptYesOrNo(<span class="keyword">const</span> <span class="keywordtype">char</span> *question);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">bool</span> promptYesOrNo(<span class="keyword">const</span> <span class="keywordtype">char</span> *question);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">/* STDOUT</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">==========*/</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">// WIP</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> printb(<span class="keywordtype">void</span> <span class="keyword">const</span> * <span class="keyword">const</span> ptr);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/* STDOUT</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">==========*/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;CHECK_PRINTF_FMT(1, 2) void eprintf(const <span class="keywordtype">char</span> *fmt, ...);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;CHECK_PRINTF_FMT(1, 3) <span class="keywordtype">void</span> cprintf(const <span class="keywordtype">char</span> * color, const <span class="keywordtype">char</span> * fmt, ...);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;CHECK_PRINTF_FMT(1, 2) void eprintf(const <span class="keywordtype">char</span> *fmt, ...);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;CHECK_PRINTF_FMT(1, 3) <span class="keywordtype">void</span> cprintf(const <span class="keywordtype">char</span> * color, const <span class="keywordtype">char</span> * fmt, ...);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aio_8h_html_a256d510cd315f80885f2112ed4d76b43"><div class="ttname"><a href="io_8h.html#a256d510cd315f80885f2112ed4d76b43">fcounts</a></div><div class="ttdeci">int fcounts(FILE *stream)</div><div class="ttdoc">Character count of current line of buffer.</div><div class="ttdef"><b>Definition:</b> io.c:105</div></div>
+<div class="ttc" id="aio_8h_html_a309a29a7485ecabf1d76fdab20cdc54a"><div class="ttname"><a href="io_8h.html#a309a29a7485ecabf1d76fdab20cdc54a">fexists</a></div><div class="ttdeci">bool fexists(const char *file)</div><div class="ttdoc">Move data from oldpath file to newpath.</div><div class="ttdef"><b>Definition:</b> io.c:222</div></div>
 <div class="ttc" id="aio_8h_html_a30c1cf02c1d1828c44f71835f04c2a1a"><div class="ttname"><a href="io_8h.html#a30c1cf02c1d1828c44f71835f04c2a1a">frpeek</a></div><div class="ttdeci">int frpeek(FILE *stream, char c)</div><div class="ttdoc">A recursive peek that goes to end of line or EOF to get # of occurences.</div><div class="ttdef"><b>Definition:</b> io.c:60</div></div>
 <div class="ttc" id="aio_8h_html_a4fa35245ecefc371cb7d7946224c0dca"><div class="ttname"><a href="io_8h.html#a4fa35245ecefc371cb7d7946224c0dca">fspeek</a></div><div class="ttdeci">char fspeek(FILE *stream, long int offset, int position)</div><div class="ttdoc">View a character at position without moving pointer; Peeks a seek.</div><div class="ttdef"><b>Definition:</b> io.c:41</div></div>
+<div class="ttc" id="aio_8h_html_a6e1471d79f8d536aa18666ceea1e8ac2"><div class="ttname"><a href="io_8h.html#a6e1471d79f8d536aa18666ceea1e8ac2">fmove</a></div><div class="ttdeci">bool fmove(char *oldpath, char *newpath)</div><div class="ttdoc">Move data from oldpath file to newpath.</div><div class="ttdef"><b>Definition:</b> io.c:170</div></div>
 <div class="ttc" id="aio_8h_html_a752780317273fa671fc8e034b91ec394"><div class="ttname"><a href="io_8h.html#a752780317273fa671fc8e034b91ec394">frdpeek</a></div><div class="ttdeci">int frdpeek(FILE *stream, char d)</div><div class="ttdoc">A recursive peek that goes till the delimter d.</div><div class="ttdef"><b>Definition:</b> io.c:81</div></div>
-<div class="ttc" id="aio_8h_html_a7663b8ddbc6e91a00cb405e1eb87f5ea"><div class="ttname"><a href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a></div><div class="ttdeci">int fcopy(FILE *dest, FILE *src)</div><div class="ttdoc">Copies data from src file tp dest file.</div><div class="ttdef"><b>Definition:</b> io.c:123</div></div>
+<div class="ttc" id="aio_8h_html_a7663b8ddbc6e91a00cb405e1eb87f5ea"><div class="ttname"><a href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a></div><div class="ttdeci">int fcopy(FILE *dest, FILE *src)</div><div class="ttdoc">Copies data from src file to dest file.</div><div class="ttdef"><b>Definition:</b> io.c:123</div></div>
 <div class="ttc" id="aio_8h_html_a8c9ada983108293c1a98cd3afa8e2b57"><div class="ttname"><a href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a></div><div class="ttdeci">char fpeek(FILE *stream)</div><div class="ttdoc">View the next character in stream, doesn't move pointer.</div><div class="ttdef"><b>Definition:</b> io.c:19</div></div>
 <div class="ttc" id="aio_8h_html_aceac3f282b0094593a25506231102cdf"><div class="ttname"><a href="io_8h.html#aceac3f282b0094593a25506231102cdf">fpeek_wc</a></div><div class="ttdeci">wchar_t fpeek_wc(FILE *stream)</div><div class="ttdoc">Same as fpeek but for wchar_t.</div><div class="ttdef"><b>Definition:</b> io.c:30</div></div>
 <div class="ttc" id="astring_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div><div class="ttdoc">New functions and types related to string and string manipulation.</div></div>

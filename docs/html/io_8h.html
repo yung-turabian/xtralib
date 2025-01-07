@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/henry/xtralib/include/xtra/io.h File Reference</title>
+<title>reislib: /home/henry/Development/reislib/include/reis/io.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="dox_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">xtralib
+   <div id="projectname">reislib
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A simple header-based drop-in library</div>
@@ -64,13 +63,12 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d682225e81a109a149d04d8b00d08999.html">xtra</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_bf64182115cd8a46cad5a2ea525d66ee.html">reis</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -123,12 +121,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_PRINTF_FMT</b>(...)</td></tr>
 <tr class="separator:a4ccd5b398e906eb6914de5c6c5b48738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a92c50087ca0e64fa93fc59402c55f8ca"><td class="memItemLeft" align="right" valign="top"><a id="a92c50087ca0e64fa93fc59402c55f8ca"></a>
-typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>u8</b></td></tr>
-<tr class="separator:a92c50087ca0e64fa93fc59402c55f8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8c9ada983108293c1a98cd3afa8e2b57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a> (FILE *stream)</td></tr>
@@ -155,23 +147,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h
 <tr class="separator:a256d510cd315f80885f2112ed4d76b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memItemLeft" align="right" valign="top"><a id="a7663b8ddbc6e91a00cb405e1eb87f5ea"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7663b8ddbc6e91a00cb405e1eb87f5ea">fcopy</a> (FILE *dest, FILE *src)</td></tr>
-<tr class="memdesc:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>src</code> file tp <code>dest</code> file. <br /></td></tr>
+<tr class="memdesc:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>src</code> file to <code>dest</code> file. <br /></td></tr>
 <tr class="separator:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af398ac0b139febc944bfaa37f937bfe5"><td class="memItemLeft" align="right" valign="top"><a id="af398ac0b139febc944bfaa37f937bfe5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>fexists</b> (const char *file)</td></tr>
-<tr class="separator:af398ac0b139febc944bfaa37f937bfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b45ea4431bd23d08b9213ee428ff528"><td class="memItemLeft" align="right" valign="top"><a id="a5b45ea4431bd23d08b9213ee428ff528"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>fmove</b> (const char *oldpath, char *newpath)</td></tr>
-<tr class="separator:a5b45ea4431bd23d08b9213ee428ff528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309a29a7485ecabf1d76fdab20cdc54a"><td class="memItemLeft" align="right" valign="top"><a id="a309a29a7485ecabf1d76fdab20cdc54a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a309a29a7485ecabf1d76fdab20cdc54a">fexists</a> (const char *file)</td></tr>
+<tr class="memdesc:a309a29a7485ecabf1d76fdab20cdc54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move data from <code>oldpath</code> file to <code>newpath.</code> <br /></td></tr>
+<tr class="separator:a309a29a7485ecabf1d76fdab20cdc54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="memItemLeft" align="right" valign="top"><a id="a6e1471d79f8d536aa18666ceea1e8ac2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a6e1471d79f8d536aa18666ceea1e8ac2">fmove</a> (char *oldpath, char *newpath)</td></tr>
+<tr class="memdesc:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move data from <code>oldpath</code> file to <code>newpath.</code> <br /></td></tr>
+<tr class="separator:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memItemLeft" align="right" valign="top"><a id="aee3479c2c0ec4f6b36f092b1e2ff57d5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sgets</b> (char *str, int n)</td></tr>
 <tr class="separator:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30598e8fbba7ef75034c9af9d04c8e0"><td class="memItemLeft" align="right" valign="top"><a id="ab30598e8fbba7ef75034c9af9d04c8e0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>promptYesOrNo</b> (const char *question)</td></tr>
 <tr class="separator:ab30598e8fbba7ef75034c9af9d04c8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347bbf99a83f569354a42263b5b8d461"><td class="memItemLeft" align="right" valign="top"><a id="a347bbf99a83f569354a42263b5b8d461"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printb</b> (void const *const ptr)</td></tr>
-<tr class="separator:a347bbf99a83f569354a42263b5b8d461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60d27bd21ad163e70dfd9cf88ee998e2"><td class="memItemLeft" align="right" valign="top"><a id="a60d27bd21ad163e70dfd9cf88ee998e2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_PRINTF_FMT</b> (1, 2) void eprintf(const char *fmt</td></tr>
 <tr class="separator:a60d27bd21ad163e70dfd9cf88ee998e2"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['raylib_2eh_24',['raylib.h',['../raylib_8h.html',1,'']]]
+  ['pair_26',['Pair',['../structPair.html',1,'']]]
 ];

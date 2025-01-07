@@ -1,16 +1,16 @@
-@mainpage xtralib
-An extension for the bare-bones C standard libraries.
+@mainpage reislib
+An extension for the C standard libraries.
 
 @section description The package includes... 
 
-@subsection xstring_sec XtraString
+@subsection xstring_sec ReisString
 
 Adds extra string operations.
 
-[<xtra/string.h>](@ref string.h)
+[<reis/string.h>](@ref string.h)
 
-@subsection xrand_sec XtraRand
+@subsection xrand_sec ReisRand
 
 Adds random generation of numbers, characters and strings.
 
-[<xtra/rand.h>](@ref rand.h)
+[<reis/rand.h>](@ref rand.h)

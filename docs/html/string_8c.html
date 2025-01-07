@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>xtralib: /home/henry/xtralib/src/string.c File Reference</title>
+<title>reislib: /home/henry/Development/reislib/src/string.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="dox_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">xtralib
+   <div id="projectname">reislib
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A simple header-based drop-in library</div>
@@ -77,8 +76,8 @@ $(function() {
 
 <p>New functions and types related to string and string manipulation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">xtra/string.h</a>&gt;</code><br />
-<code>#include &lt;xtra/memory.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">reis/string.h</a>&gt;</code><br />
+<code>#include &lt;reis/memory.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -130,10 +129,14 @@ wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>wcspres</b> (wch
 <tr class="memitem:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22">wcswcn</a> (const wchar_t *string, wchar_t ch)</td></tr>
 <tr class="memdesc:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Wide-char variant) Get number of times that <code>ch</code> appears in <code>string</code>.  <a href="string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22">More...</a><br /></td></tr>
 <tr class="separator:a16b15a946f93bb7b7d111ec70c3a2e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f15594659fd9c707967c608eca7c5e8"><td class="memItemLeft" align="right" valign="top"><a id="a3f15594659fd9c707967c608eca7c5e8"></a>
-wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#a3f15594659fd9c707967c608eca7c5e8">iswcsdigit</a> (wchar_t *string)</td></tr>
-<tr class="memdesc:a3f15594659fd9c707967c608eca7c5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms that wcstring is entirely composed on numbers. <br /></td></tr>
-<tr class="separator:a3f15594659fd9c707967c608eca7c5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0151b3ff79f2e76ff1ec8e152f81b3c"><td class="memItemLeft" align="right" valign="top"><a id="ab0151b3ff79f2e76ff1ec8e152f81b3c"></a>
+wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#ab0151b3ff79f2e76ff1ec8e152f81b3c">wcsisdigit</a> (wchar_t *str)</td></tr>
+<tr class="memdesc:ab0151b3ff79f2e76ff1ec8e152f81b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms that wcstring is entirely composed on numbers. <br /></td></tr>
+<tr class="separator:ab0151b3ff79f2e76ff1ec8e152f81b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc0e683c2b08e82548eda3180f0bc51"><td class="memItemLeft" align="right" valign="top"><a id="afcc0e683c2b08e82548eda3180f0bc51"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8c.html#afcc0e683c2b08e82548eda3180f0bc51">strisdigit</a> (char *str)</td></tr>
+<tr class="memdesc:afcc0e683c2b08e82548eda3180f0bc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirms that string is entirely composed on numbers. <br /></td></tr>
+<tr class="separator:afcc0e683c2b08e82548eda3180f0bc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7e483076865c58e998633015249737"><td class="memItemLeft" align="right" valign="top"><a id="a7f7e483076865c58e998633015249737"></a>
 long&#160;</td><td class="memItemRight" valign="bottom"><b>hash</b> (const char *str)</td></tr>
 <tr class="separator:a7f7e483076865c58e998633015249737"><td class="memSeparator" colspan="2">&#160;</td></tr>
