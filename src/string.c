@@ -12,16 +12,15 @@
 
 
 /**
- * @brief Implmentation of 'strdup'.
+ * @brief Implmentation of 'strdup,' using my MALLOC.
  * @return copy of string or NULL if something went wrong.
  */
-char *
-strdupl(const char *str)
+char * strdupl( const char *str )
 {
-		size_t len = 1 + strlen(str);
-		char *p = (char*)MALLOC(len);
+	size_t len = 1 + strlen(str);
+	char *p = (char*)MALLOC(len);
 
-		return p ? strncpy(p, str, len) : NULL;
+	return p ? strncpy( p, str, len ) : NULL;
 }
 
 /**

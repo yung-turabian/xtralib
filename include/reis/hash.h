@@ -33,15 +33,18 @@ typedef struct {
 		size_t length;
 } HashTable;
 
-HashTable * HashTableInit();
 
-void HashTableTerminate(HashTable *table);
+// long names
+HashTable * HashTable_Init();
+
+void HashTable_Terminate(HashTable *table);
 
 // return NULL if key not found
 void * HashTableGet_str(HashTable *table, const char *key);
 void * HashTableGet_wcs(HashTable *table, const wchar_t *key);
-#define HashTableGet(table,key) _Generic((key), \
+#define HashTable_Get(table,key) _Generic((key), \
 				char *: HashTableGet_str, \
+				const char *: HashTableGet_str, \
 				wchar_t *: HashTableGet_wcs \
 )(table, key)
 
@@ -49,13 +52,15 @@ void * HashTableGet_wcs(HashTable *table, const wchar_t *key);
 // Return NULL if out of memory
 const char * HashTableSet_str(HashTable *table, const char *key, void *value);
 const wchar_t * HashTableSet_wcs(HashTable *table, const wchar_t *key, void *value);
-#define HashTableSet(table,key,value) _Generic((key), \
+#define HashTable_Set(table,key,value) _Generic((key), \
 				char *: HashTableSet_str, \
+				const char *: HashTableSet_str, \
 				wchar_t *: HashTableSet_wcs \
 )(table, key, value)
 
-size_t HashTableLength(HashTable *table);
+size_t HashTable_Length(HashTable *table);
 
+/*TODO Adding the iterators.*/
 typedef struct {
 		const char *key;
 		void *value;
@@ -64,8 +69,19 @@ typedef struct {
 		size_t it;
 } HashTableIterator;
 
-HashTableIterator HashTableIteratorInit(HashTable *table);
+HashTableIterator HashTable_IteratorInit(HashTable *table);
 
-bool HashTableNext(HashTableIterator it);
+bool HashTable_Next(HashTableIterator it);
+
+//short names
+#ifdef REISLIB_HASHTABLES_SHORT_NAMES
+
+#define HT_Init() HashTable_Init()
+#define HT_Term(...) HashTable_Terminate(__VA_ARGS__)
+#define HT_Get(...) HashTable_Get(__VA_ARGS__)
+#define HT_Set(...) HashTable_Set(__VA_ARGS__)
+#define HT_Length(...) HashTable_Length(__VA_ARGS__)
+
+#endif
 
 #endif

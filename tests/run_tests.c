@@ -59,17 +59,19 @@ UTEST(reisIO, fpeek)
 
 UTEST(reisIO, filesystem_t)
 {
-	filesystem_t *fs = filesystem("/home/henry/test.txt");
+	char path[] = "/home/henry/test.txt";
 
-	ASSERT_STREQ(fs->path, "/home/henry/test.txt");
+	filesystem_t *fs = FS_Create( path );
+
+	ASSERT_STREQ( fs->path, path );
 
 	ASSERT_STREQ(fs->filename, "test.txt");
 
-	ASSERT_STREQ(fs->extension, "txt");
+	ASSERT_STREQ(fs->extension, ".txt");
 
 	ASSERT_STREQ(fs->stem, "test");
 
-	filesystem_kill( fs );
+	FS_Destroy( fs );
 }
 
 

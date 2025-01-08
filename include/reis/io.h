@@ -2,8 +2,8 @@
  * @file io.h
  * @author yung-turabian
  * @date 4 6 2024
- * @brief New functions related to file handling and writing to stdout. 
- * 
+ * @brief New functions related to file handling and writing to stdout.
+ *
  * @copyright BSD-3-Clause
  */
 
@@ -11,6 +11,8 @@
 #define __REISLIB_IO_H__
 
 #include "common.h"
+#include "string.h"
+#include "memory.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -21,6 +23,9 @@
 #include <sys/shm.h>
 #include <string.h>
 #include <ctype.h>
+
+#include <sys/stat.h>
+#include <errno.h>
 
 
 #define ANSI_RED "\x1b[31m" // ANSI code used for color printing to stdout
@@ -34,9 +39,9 @@
 #define ANSI_RESET "\x1b[0m" // ANSI reset needed to be called after color change
 
 #if defined(__GNUC__) || defined(__clang__)
-		#define CHECK_PRINTF_FMT(a, b) __attribute__ ((format (printf, a, b)))
-#else 
-		#define CHECK_PRINTF_FMT(...)
+#define CHECK_PRINTF_FMT(a, b) __attribute__ ((format (printf, a, b)))
+#else
+#define CHECK_PRINTF_FMT(...)
 #endif
 
 
@@ -49,47 +54,50 @@ extern "C" {
 
 
 typedef struct {
-	char* path;
-	char* filename;
-	char* extension;
-	char* stem;
+    char* path;
+    char* filename;
+    char* extension;
+    char* stem;
 } filesystem_t;
 
-// TODO Define a filesystem struct .filename() filename and extension, .stem() filename only, .extension()
-filesystem_t* filesystem(char* path);
-
-void filesystem_kill(filesystem_t* fs);
+filesystem_t* FS_Create( char* path );
+void          FS_Destroy(filesystem_t* fs);
 
 /* FILE HANDLING
 =================*/
 
 
-char    fpeek( FILE *stream );
-wchar_t fpeek_wc( FILE *stream );
+char    	 fpeek( FILE *stream );
+wchar_t 	 fpeek_wc( FILE *stream );
 
-char    fspeek( FILE *stream, long int offset, int position );
+char    	 fspeek( FILE *stream, long int offset, int position );
 
-int     frpeek( FILE *stream, char c );
+int     	 frpeek( FILE *stream, char c );
 
-int     frdpeek( FILE *stream, char d );
+int     	 frdpeek( FILE *stream, char d );
 
-int     fcounts( FILE *stream );
+int     	 fcounts( FILE *stream );
 
-int     fcopy( FILE *dest, FILE *src );
+int     	 fcopy( FILE *dest, FILE *src );
 
-bool    fexists( const char *file );
+bool    	 fexists( const char *file );
 
-bool    fmove( char *oldpath, char *newpath );
+bool    	 fmove( char *oldpath, char *newpath );
 
-char *  fext( const char *filename );
+const char*  ExtractFileName( const char *path );
+
+const char*  ExtractFileExtension( const char *filename );
+
+
+bool    	 dexists( const char *path );
 
 
 /* STDIN
 ========*/
 
-void    sgets(char* str, int n);
+void   sgets(char* str, int n);
 
-bool    promptYesOrNo(const char *question);
+bool   PromptYesOrNo(const char *question);
 
 
 /* STDOUT

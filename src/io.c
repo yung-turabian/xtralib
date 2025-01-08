@@ -134,34 +134,56 @@ int fcopy( FILE *dest, FILE *src )
 /**
  * @brief Return file extension.
  */
-char *fext( const char *filename )
+const char *ExtractFileExtension( const char *filename )
 {
-		char *dot = strchr(filename, '.');
-		if(!dot || dot == filename) return "";
-		return dot + 1;
+	const char *ext;
+	int it, n;
+
+	if ( filename == NULL ) return NULL;
+
+	n = strlen( filename );
+	it = n - 1;
+
+	while ( (it > 0) && (filename[it] != '.') && (filename[it] != '/') && (filename[it] != '\\') ) {
+        it--;
+    }
+
+	if ( (it > 0) && (it < n - 1) && (filename[it] == '.') && (filename[it - 1] != '/') && (filename[it - 1] != '\\') ) {
+        ext = filename + it;
+    } else {
+        ext = filename + n;
+    }
+
+
+	return ext;
 }
 
 /**
  * @brief Return filename.
  */
-char *ffilename( const char *path )
+const char *ExtractFileName( const char *path )
 {
-	char* path_copy = strdup(path);
-    const char delim[] = "/";
-    char* file;
-	char* last;
+	const char *filename;
+	int it, n;
 
-    file = strtok( path_copy, delim );
+	if ( path == NULL ) return NULL;
 
-    while ( file != NULL )
-    {
-		last = strdup( file );
-        file = strtok( NULL, delim );
+	n = strlen( path );
+	it = n - 1;
+
+	while ( (it > 0) && (path[it] != '/') && (path[it] != '\\') ) {
+        it--;
     }
 
-    free(path_copy);
 
-	return last;
+	if ( (it > 0) && (it < n - 1) && ((path[it] == '/') || (path[it] == '\\')) ) {
+        filename = path + it + 1;
+    } else {
+        filename = path + n;
+    }
+
+
+	return filename;
 }
 
 
@@ -171,19 +193,13 @@ char *ffilename( const char *path )
  */
 bool fmove( char *oldpath, char *newpath )
 {
-	filesystem_t* fs = filesystem( oldpath );
+	filesystem_t* fs = FS_Create( oldpath );
 
 	char new_name[256] = {'\0'};
 	int copy_num = 1;
 
-
-	printf("%s\n", fs->filename);
-
-
-
 	strcpy(new_name, newpath);
 	strncat(new_name, fs->filename, strlen(fs->filename));
-
 
 
 	if ( fexists(new_name) ) {
@@ -199,30 +215,50 @@ bool fmove( char *oldpath, char *newpath )
 					copy_num++
 					);
 
-			strncat( new_name, ".", 2 );
 			strncat( new_name, fs->extension, strlen(fs->extension) );
 		}
 
 	}
 
+
 	if ( rename(oldpath, new_name) == 0 ) {
+		FS_Destroy( fs );
 		return true;
 	} else {
 		perror("fmove() error on attempts to rename");
+		FS_Destroy( fs );
 		return false;
 	}
 }
 
 /**
- * @brief Move data from `oldpath` file to `newpath.`
+ * @brief Checks if file exists.
  */
-bool fexists(const char *file)
+bool fexists( const char *file )
 {
   if(access(file, F_OK) == 0) {
     return true;
   } else {
     return false;
   }
+}
+
+/**
+ *
+ */
+bool dexists( const char *path )
+{
+	struct stat sb;
+	if ( stat(path, &sb) == 0 && S_ISDIR(sb.st_mode) ) {
+		return true;
+	} else {
+		if ( errno == ENOENT ) {
+			return false;
+		} else {
+			fprintf( stderr, "Error checking directory: %s\n", path );
+			return false;
+		}
+	}
 }
 
 /* STDIN
@@ -245,7 +281,7 @@ void sgets(char* str, int n)
 }
 
 
-bool promptYesOrNo(const char *question) 
+bool PromptYesOrNo(const char *question)
 {
 		char response[4];
 
@@ -300,25 +336,31 @@ cprintf(const char * color, const char * fmt, ...)
 /* filesystem_t functions
 ===========*/
 
-filesystem_t* filesystem(char* path)
+filesystem_t* FS_Create( char* path )
 {
-	filesystem_t *fs = (filesystem_t*)malloc( sizeof(filesystem_t) );
+	filesystem_t *fs = (filesystem_t*)MALLOC( sizeof(filesystem_t) );
 
+	fs->path = strdupl( path );
 
-	//fs->path = (char*)malloc( sizeof(char) * (strlen(path) + 1) );
-	fs->path = strdup( path );
+	fs->filename = strdupl( ExtractFileName( fs->path ) );
 
-	fs->filename = ffilename( path );
+	fs->extension = strdupl( ExtractFileExtension( fs->filename ) );
 
-	fs->extension = fext( fs->filename );
+	char* tmp_filename = strdupl( fs->filename );
+	char* stem = strtok( tmp_filename, "." );
 
-	char* stem = strdup( fs->filename );
-	fs->stem = strtok( stem, "." );
+	fs->stem = strdupl( stem );
+
+	FREE( tmp_filename );
 
     return fs;
 }
 
-void filesystem_kill(filesystem_t* fs)
+void FS_Destroy( filesystem_t* fs )
 {
-	free( fs );
+	FREE( fs->path );
+	FREE( fs->filename );
+	FREE( fs->extension );
+	FREE( fs->stem );
+	FREE( fs );
 }
