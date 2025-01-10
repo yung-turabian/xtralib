@@ -9,7 +9,6 @@
 #include <reis/trie.h>
 #include <reis/io.h>
 #include <pthread.h>
-#include <reis/hash.h>
 #include <reis/raylib.h>
 
 /*struct TestFixture {
@@ -26,35 +25,33 @@ UTEST_F_SETUP(TestFixture)
 
 UTEST(reisString, chrcat) 
 {
-		char str[13] = "Hello World";
-		ASSERT_STREQ("Hello World!", chrcat(str, '!'));
+    char str[13] = "Hello World";
+    ASSERT_STREQ("Hello World!", chrcat(str, '!'));
 
-		char *str2 = (char*)malloc(sizeof(char) * 3);
-		strcpy(str2, "H");
-		ASSERT_STREQ(str2, chrcat(str2, 'i'));
+    char *str2 = (char*)malloc(sizeof(char) * 3);
+    strcpy(str2, "H");
+    ASSERT_STREQ(str2, chrcat(str2, 'i'));
 
-		char chrset[8] = "elWd";
-		
-		ASSERT_STREQ("Hello World!", strcov(str, chrset));
+    char chrset[8] = "elWd";
 
-		free(str2);
-		
+    ASSERT_STREQ("Hello World!", strcov(str, chrset));
+
+    free(str2);
 }
 
 UTEST(reisString, strcov) 
 {
-		char str[13] = "Hello World";
-		char chrset[8] = "elWd";
+    char str[13] = "Hello World";
+    char chrset[8] = "elWd";
 		
-		ASSERT_STREQ("Hello World", strcov(str, chrset));
+    ASSERT_STREQ("Hello World", strcov(str, chrset));
 }
 
 UTEST(reisIO, fpeek) 
 {
-		FILE *fp = fopen("test.txt", "w");
-		ASSERT_TRUE(fp);
-		fclose(fp);
-
+    FILE *fp = fopen("test.txt", "w");
+    ASSERT_TRUE(fp);
+    fclose(fp);
 }
 
 UTEST(reisIO, filesystem_t)
@@ -136,29 +133,33 @@ UTEST(reisMemory, REALLOC)
 		FREE(y);
 }
 
+#define REISHASH_ABBR
+#include <reis/hash.h>
+
 UTEST(HashTable, reisHash)
 {
-		HashTable *tab = HashTableInit();
-		int *x = (int*)MALLOC(sizeof(int));
-		*x = 10;
 
-		const char *ret = HashTableSet(tab, "afdfhhfgh", "sdfafsafs");
+    hashtable_t *tab = HT_Init();
+    int *x = (int*)MALLOC(sizeof(int));
+    *x = 10;
 
-		ASSERT_NE(ret, NULL);
+    const char *ret = HT_Set(tab, "afdfhhfgh", "sdfafsafs");
 
-		ret = HashTableGet(tab, "afdfhhfgh");
+    ASSERT_NE(ret, NULL);
+
+    ret = HT_Get(tab, "afdfhhfgh");
 
 
-		ASSERT_STREQ("sdfafsafs", ret);
+    ASSERT_STREQ("sdfafsafs", ret);
 
-		ret = HashTableSet(tab, "afdfhhfgh", "sda");
-		ret = HashTableGet(tab, "afdfhhfgh");
+    ret = HT_Set(tab, "afdfhhfgh", "sda");
+    ret = HT_Get(tab, "afdfhhfgh");
 
-		ASSERT_STREQ("sda", ret);
+    ASSERT_STREQ( "sda", ret );
 
-		HashTableTerminate(tab);
+    HT_Terminate( tab );
 
-		FREE(x);
+    FREE( x );
 }
 
 /*#include <reis/multimap.h>
@@ -172,14 +173,14 @@ UTEST(reisMultiMap, Creation)
 		
 		MultiMapInsert(map, L"asdffds", L"s", sizeof(wchar_t) * 2);
 
-		/*int *y = MALLOC(sizeof(int));
+		int *y = MALLOC(sizeof(int));
 
 		for(int i = 0; i < 9323; i++) {
 				*y = i;
 				MultiMapInsert(map, L"asdffds", y, sizeof(int));
-		}*/
+		}
 		
-		/*
+
 		size_t *num = (size_t*)MALLOC(sizeof(size_t));
 		void **values = MultiMapGet(map, "asdffds", num);
 
@@ -193,15 +194,6 @@ UTEST(reisMultiMap, Creation)
 		//FREE(y);
 		MultiMapFree(map);
 }*/
-
-#include <reis/pair.h>
-
-UTEST(reisPair, Creation)
-{
-		Pair *par = PairCreate(L"a", L"b");
-		
-		PairFree(par);
-}
 
 UTEST(reisString, strpre)
 {

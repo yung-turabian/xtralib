@@ -10,18 +10,18 @@
 #include <reis/hash.h>
 #include <reis/memory.h>
 
-static const char * HashTableSetEntry_str(HashTableEntry *entries, size_t capacity, const char *key, void *value, size_t *plength);
-static const wchar_t * HashTableSetEntry_wcs(HashTableEntry *entries, size_t capacity, const wchar_t *key, void *value, size_t *plength);
-static bool HashTableExpand(HashTable *table);
+static const char * HashTableSetEntry_str(hashtable_entry_t *entries, size_t capacity, const char *key, void *value, size_t *plength);
+static const wchar_t * HashTableSetEntry_wcs(hashtable_entry_t *entries, size_t capacity, const wchar_t *key, void *value, size_t *plength);
+static bool HashTableExpand(hashtable_t *table);
 
 static u64 HashKey_str(const char *key);
 static u64 HashKey_wcs(const wchar_t *key);
 
 #include <stdio.h>
 
-HashTable * HashTable_Init()
+hashtable_t* HashTable_Init( void )
 {
-    HashTable *table = MALLOC(sizeof(HashTable));
+    hashtable_t *table = MALLOC(sizeof(hashtable_t));
     if(table == NULL)
         return NULL;
 
@@ -30,7 +30,7 @@ HashTable * HashTable_Init()
 
 
     // alloc (zero'd) space for empty buckets
-    table->entries = CALLOC(table->capacity, sizeof(HashTableEntry));
+    table->entries = CALLOC(table->capacity, sizeof(hashtable_entry_t));
     if(table->entries == NULL) {
         FREE(table);
         return NULL;
@@ -39,11 +39,10 @@ HashTable * HashTable_Init()
     return table;
 }
 
-void HashTable_Terminate(HashTable *table)
+void HashTable_Terminate(hashtable_t *table)
 {
     for(size_t i = 0; i < table->capacity; i++) {
-        if (table->entries[i].key != NULL)
-        {
+        if (table->entries[i].key != NULL) {
             switch(table->entries[i].key->type) {
             case E_STRING:
                 free(table->entries[i].key->value.str);
@@ -82,7 +81,7 @@ static u64 HashKey_wcs(const wchar_t *key)
     return hash;
 }
 
-void * HashTableGet_str(HashTable *table, const char *key)
+void * HashTableGet_str(hashtable_t *table, const char *key)
 {
     u64 hash = HashKey_str(key);
     size_t index = (size_t)(hash & (u64)(table->capacity - 1));
@@ -99,7 +98,7 @@ void * HashTableGet_str(HashTable *table, const char *key)
     }
     return NULL;
 }
-void * HashTableGet_wcs(HashTable *table, const wchar_t *key)
+void * HashTableGet_wcs(hashtable_t *table, const wchar_t *key)
 {
     u64 hash = HashKey_wcs(key);
     size_t index = (size_t)(hash & (u64)(table->capacity - 1));
@@ -118,7 +117,7 @@ void * HashTableGet_wcs(HashTable *table, const wchar_t *key)
 }
 
 
-const char * HashTableSet_str(HashTable *table, const char *key, void *value)
+const char * HashTableSet_str(hashtable_t *table, const char *key, void *value)
 {
     if(value == NULL)
         return NULL;
@@ -132,7 +131,7 @@ const char * HashTableSet_str(HashTable *table, const char *key, void *value)
                                  &table->length);
 }
 
-const wchar_t * HashTableSet_wcs(HashTable *table, const wchar_t *key, void *value)
+const wchar_t * HashTableSet_wcs(hashtable_t *table, const wchar_t *key, void *value)
 {
     if(value == NULL)
         return NULL;
@@ -147,7 +146,7 @@ const wchar_t * HashTableSet_wcs(HashTable *table, const wchar_t *key, void *val
 
 }
 
-static const char * HashTableSetEntry_str(HashTableEntry *entries,
+static const char * HashTableSetEntry_str(hashtable_entry_t *entries,
         size_t capacity,
         const char *key, void *value,
         size_t *plength)
@@ -181,7 +180,7 @@ static const char * HashTableSetEntry_str(HashTableEntry *entries,
 
 
 
-    entries[index].key = (XString*)MALLOC(sizeof(XString));
+    entries[index].key = (string_t*)MALLOC(sizeof(string_t));
     entries[index].key->value.str = (char*)key;
     entries[index].key->type = E_STRING;
     entries[index].value = value;
@@ -189,7 +188,7 @@ static const char * HashTableSetEntry_str(HashTableEntry *entries,
     return key;
 }
 
-static const wchar_t * HashTableSetEntry_wcs(HashTableEntry *entries,
+static const wchar_t * HashTableSetEntry_wcs(hashtable_entry_t *entries,
         size_t capacity,
         const wchar_t *key, void *value,
         size_t *plength)
@@ -220,7 +219,7 @@ static const wchar_t * HashTableSetEntry_wcs(HashTableEntry *entries,
         (*plength)++;
     }
 
-    entries[index].key = (XString*)MALLOC(sizeof(XString));
+    entries[index].key = (string_t*)MALLOC(sizeof(string_t));
     entries[index].key->value.wcs = (wchar_t*)key;
     entries[index].key->type = E_WCSTRING;
     entries[index].value = value;
@@ -229,19 +228,19 @@ static const wchar_t * HashTableSetEntry_wcs(HashTableEntry *entries,
 
 
 
-static bool HashTableExpand(HashTable *table)
+static bool HashTableExpand(hashtable_t *table)
 {
     size_t newCapacity = table->capacity * 2;
     if(newCapacity < table->capacity)
         return false;
 
-    HashTableEntry *newEntries = CALLOC(newCapacity, sizeof(HashTableEntry));
+    hashtable_entry_t *newEntries = CALLOC(newCapacity, sizeof(hashtable_entry_t));
     if(newEntries == NULL)
         return false;
 
     // move all non-empty entries to new table
     for(size_t i = 0; i < table->capacity; i++) {
-        HashTableEntry entry = table->entries[i];
+        hashtable_entry_t entry = table->entries[i];
         if(entry.key != NULL) {
             if(entry.key->type == E_WCSTRING)
                 HashTableSetEntry_wcs(newEntries, newCapacity,
@@ -258,12 +257,12 @@ static bool HashTableExpand(HashTable *table)
     return true;
 }
 
-size_t HashTable_Length( HashTable *table ) {
+size_t HashTable_Length( hashtable_t *table ) {
     return table->length;
 }
 
 
 
-HashTableIterator HashTable_IteratorInit(HashTable *table);
+hashtable_iterator_t HashTable_IteratorInit(hashtable_t *table);
 
-bool HashTable_Next(HashTableIterator it);
+bool HashTable_Next(hashtable_iterator_t it);
