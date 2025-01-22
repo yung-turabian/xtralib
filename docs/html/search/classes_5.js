@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vec2_65',['vec2',['../structvec2.html',1,'']]]
+  ['trienode_0',['TrieNode',['../structTrieNode.html',1,'']]]
 ];

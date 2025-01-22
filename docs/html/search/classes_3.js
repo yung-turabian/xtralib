@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trienode_62',['TrieNode',['../structTrieNode.html',1,'']]]
+  ['pair_0',['Pair',['../structPair.html',1,'']]]
 ];

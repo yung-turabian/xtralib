@@ -1,5 +1,14 @@
 var searchData=
 [
-  ['utest_5fstate_5fs_44',['utest_state_s',['../structutest__state__s.html',1,'']]],
-  ['utest_5ftest_5fstate_5fs_45',['utest_test_state_s',['../structutest__test__state__s.html',1,'']]]
+  ['strchrn_0',['strchrn',['../string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c'],['../string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c']]],
+  ['strcov_1',['strcov',['../string_8h.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c'],['../string_8c.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c']]],
+  ['strdupl_2',['strdupl',['../string_8h.html#a00591099bc4ef0b6cb194d350c0bc64d',1,'strdupl(const char *str):&#160;string.c'],['../string_8c.html#a00591099bc4ef0b6cb194d350c0bc64d',1,'strdupl(const char *str):&#160;string.c']]],
+  ['string_2ec_3',['string.c',['../string_8c.html',1,'']]],
+  ['string_2eh_4',['string.h',['../string_8h.html',1,'']]],
+  ['string_5fcontent_5',['string_content',['../unionstring__t_1_1string__content.html',1,'string_t']]],
+  ['string_5ft_6',['string_t',['../structstring__t.html',1,'']]],
+  ['strisdigit_7',['strisdigit',['../string_8h.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c'],['../string_8c.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c']]],
+  ['strpcat_8',['strpcat',['../string_8h.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c'],['../string_8c.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c']]],
+  ['strset_9',['strset',['../string_8h.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c'],['../string_8c.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c']]],
+  ['structures_10',['Data Structures',['..//home/hendog4eva/Dev/reislib/README.md#autotoc_md3',1,'']]]
 ];

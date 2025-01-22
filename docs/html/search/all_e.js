@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['xstring_52',['XString',['../structXString.html',1,'']]],
-  ['xstringvalue_53',['XStringValue',['../unionXString_1_1XStringValue.html',1,'XString']]]
+  ['vec2_0',['vec2',['../structvec2.html',1,'']]]
 ];

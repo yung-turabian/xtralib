@@ -23,6 +23,6 @@
 #define BD_MAX_CLOSE          8192 // max fds
 
 // 0 on success; -1 on error
-int Daemonize(const char *name, int flags);
+int Daemonize(const char *name, char* path, int flags);
 
 #endif
