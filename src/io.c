@@ -1,7 +1,7 @@
 /**
  * @file io.c
  * @author yung-turabian
- * @date 4 6 2024
+ * @date 22 1 2025
  * @brief New functions related to file handling and writing to stdout. 
  * 
  * @copyright BSD-3-Clause
@@ -14,10 +14,9 @@
 
 /**
  *	@brief View the next character in stream, doesn't move pointer.
- *	@return character.
+ *	@return the character.
  */
-char fpeek( FILE *stream )
-{ 
+char fpeek( FILE *stream ) { 
 		char c = fgetc(stream); 
 		ungetc(c, stream); 
 		return c; 
@@ -25,10 +24,10 @@ char fpeek( FILE *stream )
 
 /**
  *	@brief Same as `fpeek` but for wchar_t.
+ *	@return the character.
  *
  */
-wchar_t fpeek_wc( FILE *stream )
-{ 
+wchar_t fpeek_wc( FILE *stream ) { 
 		wchar_t c = fgetwc(stream); 
 		ungetwc(c, stream); 
 		return c; 
@@ -38,8 +37,7 @@ wchar_t fpeek_wc( FILE *stream )
  *	@brief View a character at position without moving pointer; Peeks a seek.
  *	@return seeked and peeked character.
  */
-char fspeek( FILE *stream, long int offset, int position )
-{
+char fspeek( FILE *stream, long int offset, int position ) {
 	char c;
 	fpos_t original_position;
 	fgetpos(stream, &original_position);
@@ -56,9 +54,9 @@ char fspeek( FILE *stream, long int offset, int position )
 /**
  * @brief A recursive peek that goes to end of line or EOF
  * to get # of occurences.
+ * @return the number of occurences.
  */
-int frpeek( FILE *stream, char c )
-{
+int frpeek( FILE *stream, char c ) {
 	int count = 0;
 	char cc = c;
 	fpos_t original_position;
@@ -77,9 +75,9 @@ int frpeek( FILE *stream, char c )
 
 /** 
  * @brief A recursive peek that goes till the delimter `d`.
+ * @return The number of occurences.
  */
-int frdpeek( FILE *stream, char d )
-{
+int frdpeek( FILE *stream, char d ) {
 	int count = 0;
 	char c = '\0';
 	fpos_t original_position;
@@ -101,9 +99,9 @@ int frdpeek( FILE *stream, char d )
 
 /**
  * @brief Character count of current line of buffer.
+ * @return A count.
  */
-int fcounts( FILE *stream )
-{
+int fcounts( FILE *stream ) {
 	int ch, count; 
 	fpos_t original_position; 
 	fgetpos(stream, &original_position);
@@ -119,23 +117,25 @@ int fcounts( FILE *stream )
 
 /**
  * @brief Copies data from `src` file to `dest` file.
+ * @return void.
  */
-int fcopy( FILE *dest, FILE *src )
-{
+void fcopy( FILE *dest, FILE *src ) {
 	int c;
-	if(ftell(src) != 0) fseek(src, 0, SEEK_SET); //reset pos
-	while((c = fgetc(src)) != EOF) {
-		if(fputc(c, dest) == EOF) break;
+	if (ftell(src) != 0 ) 
+			fseek( src, 0, SEEK_SET ); //reset pos
+																 
+	while ( (c = fgetc(src)) != EOF ) {
+		if ( fputc(c, dest) == EOF )  
+				break;
 	}
-	return 1;
 }
 
 
 /**
- * @brief Return file extension.
+ * @brief Returns file extension.
+ * @return file exteionsion.
  */
-const char *ExtractFileExtension( const char *filename )
-{
+const char *ExtractFileExtension( const char *filename ) {
 	const char *ext;
 	int it, n;
 
@@ -159,10 +159,10 @@ const char *ExtractFileExtension( const char *filename )
 }
 
 /**
- * @brief Return filename.
+ * @brief Returns filename.
+ * @return a filename.
  */
-const char *ExtractFileName( const char *path )
-{
+const char *ExtractFileName( const char *path ) {
 	const char *filename;
 	int it, n;
 
@@ -190,9 +190,9 @@ const char *ExtractFileName( const char *path )
 
 /**
  * @brief Move data from `oldpath` file to `newpath.`
+ * @return a boolean if was succesful or not.
  */
-bool fmove( char *oldpath, char *newpath )
-{
+bool fmove( char *oldpath, char *newpath ) {
 	filesystem_t* fs = FS_Create( oldpath );
 
 	char new_name[256] = {'\0'};
@@ -220,7 +220,6 @@ bool fmove( char *oldpath, char *newpath )
 
 	}
 
-
 	if ( rename(oldpath, new_name) == 0 ) {
 		FS_Destroy( fs );
 		return true;
@@ -233,9 +232,9 @@ bool fmove( char *oldpath, char *newpath )
 
 /**
  * @brief Checks if file exists.
+ * @return a boolean.
  */
-bool fexists( const char *file )
-{
+bool fexists( const char *file ) {
   if(access(file, F_OK) == 0) {
     return true;
   } else {
@@ -244,10 +243,10 @@ bool fexists( const char *file )
 }
 
 /**
- *
+ * @brief Checks if directory exists.
+ * @return a boolean. 
  */
-bool dexists( const char *path )
-{
+bool dexists( const char *path ) {
 	struct stat sb;
 	if ( stat(path, &sb) == 0 && S_ISDIR(sb.st_mode) ) {
 		return true;
@@ -264,10 +263,13 @@ bool dexists( const char *path )
 /* STDIN
 ========*/
 
-// get string, often a buffer, pass length as well
-// A safe way to read input that ensures no misc LF or breaks in read string
-void sgets(char* str, int n)
-{
+/**
+ * @brief A safe way to read input that ensures no misc LF or breaks in read string
+ * @param[str] A buffer.
+ * @param[n] The buffer's length.
+ * @return nothing. 
+ */
+void sgets(char* str, int n) {
 		char* str_read = fgets(str, n, stdin);
 		if(!str_read) return;
 
@@ -280,9 +282,11 @@ void sgets(char* str, int n)
 		if(str[i] == '\n') str[i] = '\0';
 }
 
-
-bool PromptYesOrNo(const char *question)
-{
+/**
+ * @brief Prompts the user with a yes or no question. 
+ * @return boolean response.
+ */
+bool PromptYesOrNo(const char *question) {
 		char response[4];
 
 		while(1) {
@@ -308,10 +312,10 @@ bool PromptYesOrNo(const char *question)
 
 /**
  * @brief Makes writing error to stderr slightly simpler.
+ * @return nothing.
  */
 CHECK_PRINTF_FMT(1, 2) void 
-eprintf(const char *fmt, ...)
-{
+eprintf(const char *fmt, ...) {
 		va_list vargs;
 		va_start(vargs, fmt);
 		vfprintf(stderr, fmt, vargs);
@@ -320,10 +324,15 @@ eprintf(const char *fmt, ...)
 
 /**
  * @brief Easy color printing.
+ * @param color A provided macro for VT100 escapes, or your own.
+ * @param fmt A format string.
+ * @param ... Completions for the format.
+ * @return nothing.
+ * @usage
+ * cprintf( ANSI_GREEN, "Hello %s!", "World" );
  */
 CHECK_PRINTF_FMT(1, 3) void
-cprintf(const char * color, const char * fmt, ...)
-{
+cprintf(const char * color, const char * fmt, ...) {
 		printf("%s", color);
 		va_list vargs;
 		va_start(vargs, fmt);
@@ -336,8 +345,11 @@ cprintf(const char * color, const char * fmt, ...)
 /* filesystem_t functions
 ===========*/
 
-filesystem_t* FS_Create( char* path )
-{
+/**
+ * @brief Create a filesystem_t object.
+ * @return The new structure.
+ */
+filesystem_t* FS_Create( char* path ) {
 	filesystem_t *fs = (filesystem_t*)MALLOC( sizeof(filesystem_t) );
 
 	fs->path = strdupl( path );
@@ -356,8 +368,11 @@ filesystem_t* FS_Create( char* path )
     return fs;
 }
 
-void FS_Destroy( filesystem_t* fs )
-{
+/**
+ * @brief Terminates a filesystem_t object.
+ * @return nothing.
+ */
+void FS_Destroy( filesystem_t* fs ) {
 	FREE( fs->path );
 	FREE( fs->filename );
 	FREE( fs->extension );

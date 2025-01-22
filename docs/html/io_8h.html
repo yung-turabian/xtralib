@@ -153,62 +153,53 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a99e66d22aaf4806c930c73e7684dc514" id="r_a99e66d22aaf4806c930c73e7684dc514"><td class="memItemLeft" align="right" valign="top"><a id="a99e66d22aaf4806c930c73e7684dc514" name="a99e66d22aaf4806c930c73e7684dc514"></a>
-<a class="el" href="structfilesystem__t.html">filesystem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>FS_Create</b> (char *path)</td></tr>
+<tr class="memitem:a99e66d22aaf4806c930c73e7684dc514" id="r_a99e66d22aaf4806c930c73e7684dc514"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfilesystem__t.html">filesystem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99e66d22aaf4806c930c73e7684dc514">FS_Create</a> (char *path)</td></tr>
+<tr class="memdesc:a99e66d22aaf4806c930c73e7684dc514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structfilesystem__t.html">filesystem_t</a> object.  <br /></td></tr>
 <tr class="separator:a99e66d22aaf4806c930c73e7684dc514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f6736e42e1735ada0cc912474398aa" id="r_aa6f6736e42e1735ada0cc912474398aa"><td class="memItemLeft" align="right" valign="top"><a id="aa6f6736e42e1735ada0cc912474398aa" name="aa6f6736e42e1735ada0cc912474398aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FS_Destroy</b> (<a class="el" href="structfilesystem__t.html">filesystem_t</a> *fs)</td></tr>
+<tr class="memitem:aa6f6736e42e1735ada0cc912474398aa" id="r_aa6f6736e42e1735ada0cc912474398aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6f6736e42e1735ada0cc912474398aa">FS_Destroy</a> (<a class="el" href="structfilesystem__t.html">filesystem_t</a> *fs)</td></tr>
+<tr class="memdesc:aa6f6736e42e1735ada0cc912474398aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates a <a class="el" href="structfilesystem__t.html">filesystem_t</a> object.  <br /></td></tr>
 <tr class="separator:aa6f6736e42e1735ada0cc912474398aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c9ada983108293c1a98cd3afa8e2b57" id="r_a8c9ada983108293c1a98cd3afa8e2b57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c9ada983108293c1a98cd3afa8e2b57">fpeek</a> (FILE *stream)</td></tr>
 <tr class="memdesc:a8c9ada983108293c1a98cd3afa8e2b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">View the next character in stream, doesn't move pointer.  <br /></td></tr>
 <tr class="separator:a8c9ada983108293c1a98cd3afa8e2b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceac3f282b0094593a25506231102cdf" id="r_aceac3f282b0094593a25506231102cdf"><td class="memItemLeft" align="right" valign="top"><a id="aceac3f282b0094593a25506231102cdf" name="aceac3f282b0094593a25506231102cdf"></a>
-wchar_t&#160;</td><td class="memItemRight" valign="bottom"><b>fpeek_wc</b> (FILE *stream)</td></tr>
-<tr class="memdesc:aceac3f282b0094593a25506231102cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>fpeek</code> but for wchar_t. <br /></td></tr>
+<tr class="memitem:aceac3f282b0094593a25506231102cdf" id="r_aceac3f282b0094593a25506231102cdf"><td class="memItemLeft" align="right" valign="top">wchar_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceac3f282b0094593a25506231102cdf">fpeek_wc</a> (FILE *stream)</td></tr>
+<tr class="memdesc:aceac3f282b0094593a25506231102cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <code>fpeek</code> but for wchar_t.  <br /></td></tr>
 <tr class="separator:aceac3f282b0094593a25506231102cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa35245ecefc371cb7d7946224c0dca" id="r_a4fa35245ecefc371cb7d7946224c0dca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fa35245ecefc371cb7d7946224c0dca">fspeek</a> (FILE *stream, long int offset, int position)</td></tr>
 <tr class="memdesc:a4fa35245ecefc371cb7d7946224c0dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">View a character at position without moving pointer; Peeks a seek.  <br /></td></tr>
 <tr class="separator:a4fa35245ecefc371cb7d7946224c0dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30c1cf02c1d1828c44f71835f04c2a1a" id="r_a30c1cf02c1d1828c44f71835f04c2a1a"><td class="memItemLeft" align="right" valign="top"><a id="a30c1cf02c1d1828c44f71835f04c2a1a" name="a30c1cf02c1d1828c44f71835f04c2a1a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>frpeek</b> (FILE *stream, char c)</td></tr>
-<tr class="memdesc:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes to end of line or EOF to get # of occurences. <br /></td></tr>
+<tr class="memitem:a30c1cf02c1d1828c44f71835f04c2a1a" id="r_a30c1cf02c1d1828c44f71835f04c2a1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30c1cf02c1d1828c44f71835f04c2a1a">frpeek</a> (FILE *stream, char c)</td></tr>
+<tr class="memdesc:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes to end of line or EOF to get # of occurences.  <br /></td></tr>
 <tr class="separator:a30c1cf02c1d1828c44f71835f04c2a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a752780317273fa671fc8e034b91ec394" id="r_a752780317273fa671fc8e034b91ec394"><td class="memItemLeft" align="right" valign="top"><a id="a752780317273fa671fc8e034b91ec394" name="a752780317273fa671fc8e034b91ec394"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>frdpeek</b> (FILE *stream, char d)</td></tr>
-<tr class="memdesc:a752780317273fa671fc8e034b91ec394"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes till the delimter <code>d</code>. <br /></td></tr>
+<tr class="memitem:a752780317273fa671fc8e034b91ec394" id="r_a752780317273fa671fc8e034b91ec394"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a752780317273fa671fc8e034b91ec394">frdpeek</a> (FILE *stream, char d)</td></tr>
+<tr class="memdesc:a752780317273fa671fc8e034b91ec394"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive peek that goes till the delimter <code>d</code>.  <br /></td></tr>
 <tr class="separator:a752780317273fa671fc8e034b91ec394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256d510cd315f80885f2112ed4d76b43" id="r_a256d510cd315f80885f2112ed4d76b43"><td class="memItemLeft" align="right" valign="top"><a id="a256d510cd315f80885f2112ed4d76b43" name="a256d510cd315f80885f2112ed4d76b43"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>fcounts</b> (FILE *stream)</td></tr>
-<tr class="memdesc:a256d510cd315f80885f2112ed4d76b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character count of current line of buffer. <br /></td></tr>
+<tr class="memitem:a256d510cd315f80885f2112ed4d76b43" id="r_a256d510cd315f80885f2112ed4d76b43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a256d510cd315f80885f2112ed4d76b43">fcounts</a> (FILE *stream)</td></tr>
+<tr class="memdesc:a256d510cd315f80885f2112ed4d76b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character count of current line of buffer.  <br /></td></tr>
 <tr class="separator:a256d510cd315f80885f2112ed4d76b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7663b8ddbc6e91a00cb405e1eb87f5ea" id="r_a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memItemLeft" align="right" valign="top"><a id="a7663b8ddbc6e91a00cb405e1eb87f5ea" name="a7663b8ddbc6e91a00cb405e1eb87f5ea"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>fcopy</b> (FILE *dest, FILE *src)</td></tr>
-<tr class="memdesc:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>src</code> file to <code>dest</code> file. <br /></td></tr>
-<tr class="separator:a7663b8ddbc6e91a00cb405e1eb87f5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a309a29a7485ecabf1d76fdab20cdc54a" id="r_a309a29a7485ecabf1d76fdab20cdc54a"><td class="memItemLeft" align="right" valign="top"><a id="a309a29a7485ecabf1d76fdab20cdc54a" name="a309a29a7485ecabf1d76fdab20cdc54a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>fexists</b> (const char *file)</td></tr>
-<tr class="memdesc:a309a29a7485ecabf1d76fdab20cdc54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if file exists. <br /></td></tr>
+<tr class="memitem:a85abdc9eb98a2b491a2854951469aa4c" id="r_a85abdc9eb98a2b491a2854951469aa4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85abdc9eb98a2b491a2854951469aa4c">fcopy</a> (FILE *dest, FILE *src)</td></tr>
+<tr class="memdesc:a85abdc9eb98a2b491a2854951469aa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from <code>src</code> file to <code>dest</code> file.  <br /></td></tr>
+<tr class="separator:a85abdc9eb98a2b491a2854951469aa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309a29a7485ecabf1d76fdab20cdc54a" id="r_a309a29a7485ecabf1d76fdab20cdc54a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a309a29a7485ecabf1d76fdab20cdc54a">fexists</a> (const char *file)</td></tr>
+<tr class="memdesc:a309a29a7485ecabf1d76fdab20cdc54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if file exists.  <br /></td></tr>
 <tr class="separator:a309a29a7485ecabf1d76fdab20cdc54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1471d79f8d536aa18666ceea1e8ac2" id="r_a6e1471d79f8d536aa18666ceea1e8ac2"><td class="memItemLeft" align="right" valign="top"><a id="a6e1471d79f8d536aa18666ceea1e8ac2" name="a6e1471d79f8d536aa18666ceea1e8ac2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>fmove</b> (char *oldpath, char *newpath)</td></tr>
-<tr class="memdesc:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move data from <code>oldpath</code> file to <code>newpath.</code> <br /></td></tr>
+<tr class="memitem:a6e1471d79f8d536aa18666ceea1e8ac2" id="r_a6e1471d79f8d536aa18666ceea1e8ac2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e1471d79f8d536aa18666ceea1e8ac2">fmove</a> (char *oldpath, char *newpath)</td></tr>
+<tr class="memdesc:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move data from <code>oldpath</code> file to <code>newpath.</code>  <br /></td></tr>
 <tr class="separator:a6e1471d79f8d536aa18666ceea1e8ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1d3ab0dc98580dc8d68ed7226f304ff" id="r_ad1d3ab0dc98580dc8d68ed7226f304ff"><td class="memItemLeft" align="right" valign="top"><a id="ad1d3ab0dc98580dc8d68ed7226f304ff" name="ad1d3ab0dc98580dc8d68ed7226f304ff"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ExtractFileName</b> (const char *path)</td></tr>
-<tr class="memdesc:ad1d3ab0dc98580dc8d68ed7226f304ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return filename. <br /></td></tr>
+<tr class="memitem:ad1d3ab0dc98580dc8d68ed7226f304ff" id="r_ad1d3ab0dc98580dc8d68ed7226f304ff"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1d3ab0dc98580dc8d68ed7226f304ff">ExtractFileName</a> (const char *path)</td></tr>
+<tr class="memdesc:ad1d3ab0dc98580dc8d68ed7226f304ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns filename.  <br /></td></tr>
 <tr class="separator:ad1d3ab0dc98580dc8d68ed7226f304ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f245954d68782d78c39c586e6989948" id="r_a5f245954d68782d78c39c586e6989948"><td class="memItemLeft" align="right" valign="top"><a id="a5f245954d68782d78c39c586e6989948" name="a5f245954d68782d78c39c586e6989948"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ExtractFileExtension</b> (const char *filename)</td></tr>
-<tr class="memdesc:a5f245954d68782d78c39c586e6989948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return file extension. <br /></td></tr>
+<tr class="memitem:a5f245954d68782d78c39c586e6989948" id="r_a5f245954d68782d78c39c586e6989948"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f245954d68782d78c39c586e6989948">ExtractFileExtension</a> (const char *filename)</td></tr>
+<tr class="memdesc:a5f245954d68782d78c39c586e6989948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns file extension.  <br /></td></tr>
 <tr class="separator:a5f245954d68782d78c39c586e6989948"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd25b353f6dbccc03954e0579aff8ac1" id="r_afd25b353f6dbccc03954e0579aff8ac1"><td class="memItemLeft" align="right" valign="top"><a id="afd25b353f6dbccc03954e0579aff8ac1" name="afd25b353f6dbccc03954e0579aff8ac1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dexists</b> (const char *path)</td></tr>
+<tr class="memitem:afd25b353f6dbccc03954e0579aff8ac1" id="r_afd25b353f6dbccc03954e0579aff8ac1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd25b353f6dbccc03954e0579aff8ac1">dexists</a> (const char *path)</td></tr>
+<tr class="memdesc:afd25b353f6dbccc03954e0579aff8ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if directory exists.  <br /></td></tr>
 <tr class="separator:afd25b353f6dbccc03954e0579aff8ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee3479c2c0ec4f6b36f092b1e2ff57d5" id="r_aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memItemLeft" align="right" valign="top"><a id="aee3479c2c0ec4f6b36f092b1e2ff57d5" name="aee3479c2c0ec4f6b36f092b1e2ff57d5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sgets</b> (char *str, int n)</td></tr>
+<tr class="memitem:aee3479c2c0ec4f6b36f092b1e2ff57d5" id="r_aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee3479c2c0ec4f6b36f092b1e2ff57d5">sgets</a> (char *str, int n)</td></tr>
+<tr class="memdesc:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A safe way to read input that ensures no misc LF or breaks in read string.  <br /></td></tr>
 <tr class="separator:aee3479c2c0ec4f6b36f092b1e2ff57d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac95c0465042b47ef08fdc91ea58185ab" id="r_ac95c0465042b47ef08fdc91ea58185ab"><td class="memItemLeft" align="right" valign="top"><a id="ac95c0465042b47ef08fdc91ea58185ab" name="ac95c0465042b47ef08fdc91ea58185ab"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>PromptYesOrNo</b> (const char *question)</td></tr>
+<tr class="memitem:ac95c0465042b47ef08fdc91ea58185ab" id="r_ac95c0465042b47ef08fdc91ea58185ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac95c0465042b47ef08fdc91ea58185ab">PromptYesOrNo</a> (const char *question)</td></tr>
+<tr class="memdesc:ac95c0465042b47ef08fdc91ea58185ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prompts the user with a yes or no question.  <br /></td></tr>
 <tr class="separator:ac95c0465042b47ef08fdc91ea58185ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60d27bd21ad163e70dfd9cf88ee998e2" id="r_a60d27bd21ad163e70dfd9cf88ee998e2"><td class="memItemLeft" align="right" valign="top"><a id="a60d27bd21ad163e70dfd9cf88ee998e2" name="a60d27bd21ad163e70dfd9cf88ee998e2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_PRINTF_FMT</b> (1, 2) void eprintf(const char *fmt</td></tr>
@@ -229,6 +220,154 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fmt</b></td><
 <dl class="section date"><dt>Date</dt><dd>4 6 2024 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>BSD-3-Clause </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="afd25b353f6dbccc03954e0579aff8ac1" name="afd25b353f6dbccc03954e0579aff8ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd25b353f6dbccc03954e0579aff8ac1">&#9670;&#160;</a></span>dexists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dexists </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if directory exists. </p>
+<dl class="section return"><dt>Returns</dt><dd>a boolean. </dd></dl>
+
+</div>
+</div>
+<a id="a5f245954d68782d78c39c586e6989948" name="a5f245954d68782d78c39c586e6989948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f245954d68782d78c39c586e6989948">&#9670;&#160;</a></span>ExtractFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * ExtractFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns file extension. </p>
+<dl class="section return"><dt>Returns</dt><dd>file exteionsion. </dd></dl>
+
+</div>
+</div>
+<a id="ad1d3ab0dc98580dc8d68ed7226f304ff" name="ad1d3ab0dc98580dc8d68ed7226f304ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d3ab0dc98580dc8d68ed7226f304ff">&#9670;&#160;</a></span>ExtractFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * ExtractFileName </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns filename. </p>
+<dl class="section return"><dt>Returns</dt><dd>a filename. </dd></dl>
+
+</div>
+</div>
+<a id="a85abdc9eb98a2b491a2854951469aa4c" name="a85abdc9eb98a2b491a2854951469aa4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85abdc9eb98a2b491a2854951469aa4c">&#9670;&#160;</a></span>fcopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fcopy </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies data from <code>src</code> file to <code>dest</code> file. </p>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
+<a id="a256d510cd315f80885f2112ed4d76b43" name="a256d510cd315f80885f2112ed4d76b43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256d510cd315f80885f2112ed4d76b43">&#9670;&#160;</a></span>fcounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fcounts </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Character count of current line of buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A count. </dd></dl>
+
+</div>
+</div>
+<a id="a309a29a7485ecabf1d76fdab20cdc54a" name="a309a29a7485ecabf1d76fdab20cdc54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a309a29a7485ecabf1d76fdab20cdc54a">&#9670;&#160;</a></span>fexists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fexists </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if file exists. </p>
+<dl class="section return"><dt>Returns</dt><dd>a boolean. </dd></dl>
+
+</div>
+</div>
+<a id="a6e1471d79f8d536aa18666ceea1e8ac2" name="a6e1471d79f8d536aa18666ceea1e8ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1471d79f8d536aa18666ceea1e8ac2">&#9670;&#160;</a></span>fmove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool fmove </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>oldpath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>newpath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move data from <code>oldpath</code> file to <code>newpath.</code> </p>
+<dl class="section return"><dt>Returns</dt><dd>a boolean if was succesful or not. </dd></dl>
+
+</div>
+</div>
 <a id="a8c9ada983108293c1a98cd3afa8e2b57" name="a8c9ada983108293c1a98cd3afa8e2b57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c9ada983108293c1a98cd3afa8e2b57">&#9670;&#160;</a></span>fpeek()</h2>
 
@@ -245,7 +384,115 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fmt</b></td><
 </div><div class="memdoc">
 
 <p>View the next character in stream, doesn't move pointer. </p>
-<dl class="section return"><dt>Returns</dt><dd>character. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the character. </dd></dl>
+
+</div>
+</div>
+<a id="aceac3f282b0094593a25506231102cdf" name="aceac3f282b0094593a25506231102cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceac3f282b0094593a25506231102cdf">&#9670;&#160;</a></span>fpeek_wc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wchar_t fpeek_wc </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <code>fpeek</code> but for wchar_t. </p>
+<dl class="section return"><dt>Returns</dt><dd>the character. </dd></dl>
+
+</div>
+</div>
+<a id="a752780317273fa671fc8e034b91ec394" name="a752780317273fa671fc8e034b91ec394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a752780317273fa671fc8e034b91ec394">&#9670;&#160;</a></span>frdpeek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frdpeek </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A recursive peek that goes till the delimter <code>d</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of occurences. </dd></dl>
+
+</div>
+</div>
+<a id="a30c1cf02c1d1828c44f71835f04c2a1a" name="a30c1cf02c1d1828c44f71835f04c2a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c1cf02c1d1828c44f71835f04c2a1a">&#9670;&#160;</a></span>frpeek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int frpeek </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A recursive peek that goes to end of line or EOF to get # of occurences. </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of occurences. </dd></dl>
+
+</div>
+</div>
+<a id="a99e66d22aaf4806c930c73e7684dc514" name="a99e66d22aaf4806c930c73e7684dc514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e66d22aaf4806c930c73e7684dc514">&#9670;&#160;</a></span>FS_Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfilesystem__t.html">filesystem_t</a> * FS_Create </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="structfilesystem__t.html">filesystem_t</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd>The new structure. </dd></dl>
+
+</div>
+</div>
+<a id="aa6f6736e42e1735ada0cc912474398aa" name="aa6f6736e42e1735ada0cc912474398aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f6736e42e1735ada0cc912474398aa">&#9670;&#160;</a></span>FS_Destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FS_Destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfilesystem__t.html">filesystem_t</a> *</td>          <td class="paramname"><span class="paramname"><em>fs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminates a <a class="el" href="structfilesystem__t.html">filesystem_t</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd>nothing. </dd></dl>
 
 </div>
 </div>
@@ -275,6 +522,57 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>fmt</b></td><
 
 <p>View a character at position without moving pointer; Peeks a seek. </p>
 <dl class="section return"><dt>Returns</dt><dd>seeked and peeked character. </dd></dl>
+
+</div>
+</div>
+<a id="ac95c0465042b47ef08fdc91ea58185ab" name="ac95c0465042b47ef08fdc91ea58185ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95c0465042b47ef08fdc91ea58185ab">&#9670;&#160;</a></span>PromptYesOrNo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PromptYesOrNo </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>question</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prompts the user with a yes or no question. </p>
+<dl class="section return"><dt>Returns</dt><dd>boolean response. </dd></dl>
+
+</div>
+</div>
+<a id="aee3479c2c0ec4f6b36f092b1e2ff57d5" name="aee3479c2c0ec4f6b36f092b1e2ff57d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee3479c2c0ec4f6b36f092b1e2ff57d5">&#9670;&#160;</a></span>sgets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sgets </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A safe way to read input that ensures no misc LF or breaks in read string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[str]</td><td>A buffer. </td></tr>
+    <tr><td class="paramname">[n]</td><td>The buffer's length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing. </dd></dl>
 
 </div>
 </div>

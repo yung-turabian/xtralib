@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['wcsisdigit_0',['wcsisdigit',['../string_8h.html#a7d3682ab22bb62f950a65fc3c0c5db65',1,'wcsisdigit(wchar_t *str):&#160;string.c'],['../string_8c.html#a7d3682ab22bb62f950a65fc3c0c5db65',1,'wcsisdigit(wchar_t *str):&#160;string.c']]],
-  ['wcspre_1',['wcspre',['../string_8h.html#af86cfe15f3fa9d76e8bcda55c84ee878',1,'wcspre(wchar_t *str, wchar_t chr):&#160;string.c'],['../string_8c.html#af86cfe15f3fa9d76e8bcda55c84ee878',1,'wcspre(wchar_t *str, wchar_t chr):&#160;string.c']]],
-  ['wcsrev_2',['wcsrev',['../string_8h.html#aad2c63ee9db9f863a31bc33900b193fd',1,'wcsrev(wchar_t *str):&#160;string.c'],['../string_8c.html#aad2c63ee9db9f863a31bc33900b193fd',1,'wcsrev(wchar_t *str):&#160;string.c']]],
-  ['wcswcn_3',['wcswcn',['../string_8h.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c'],['../string_8c.html#a16b15a946f93bb7b7d111ec70c3a2e22',1,'wcswcn(const wchar_t *string, wchar_t ch):&#160;string.c']]]
+  ['sgets_0',['sgets',['../io_8h.html#aee3479c2c0ec4f6b36f092b1e2ff57d5',1,'sgets(char *str, int n):&#160;io.c'],['../io_8c.html#aee3479c2c0ec4f6b36f092b1e2ff57d5',1,'sgets(char *str, int n):&#160;io.c']]],
+  ['strchrn_1',['strchrn',['../string_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c'],['../string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c']]],
+  ['strcov_2',['strcov',['../string_8h.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c'],['../string_8c.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c']]],
+  ['strdupl_3',['strdupl',['../string_8h.html#a00591099bc4ef0b6cb194d350c0bc64d',1,'strdupl(const char *str):&#160;string.c'],['../string_8c.html#a00591099bc4ef0b6cb194d350c0bc64d',1,'strdupl(const char *str):&#160;string.c']]],
+  ['strisdigit_4',['strisdigit',['../string_8h.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c'],['../string_8c.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c']]],
+  ['strpcat_5',['strpcat',['../string_8h.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c'],['../string_8c.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c']]],
+  ['strset_6',['strset',['../string_8h.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c'],['../string_8c.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c']]]
 ];

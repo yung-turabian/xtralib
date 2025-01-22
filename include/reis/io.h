@@ -67,37 +67,36 @@ void          FS_Destroy(filesystem_t* fs);
 =================*/
 
 
-char    	 fpeek( FILE *stream );
-wchar_t 	 fpeek_wc( FILE *stream );
+char    	   fpeek( FILE *stream );
+wchar_t 	   fpeek_wc( FILE *stream );
 
-char    	 fspeek( FILE *stream, long int offset, int position );
+char    	   fspeek( FILE *stream, long int offset, int position );
 
-int     	 frpeek( FILE *stream, char c );
+int     	   frpeek( FILE *stream, char c );
 
-int     	 frdpeek( FILE *stream, char d );
+int     	   frdpeek( FILE *stream, char d );
 
-int     	 fcounts( FILE *stream );
+int     	   fcounts( FILE *stream );
 
-int     	 fcopy( FILE *dest, FILE *src );
+void     	   fcopy( FILE *dest, FILE *src );
 
-bool    	 fexists( const char *file );
+bool    	   fexists( const char *file );
 
-bool    	 fmove( char *oldpath, char *newpath );
+bool    	   fmove( char *oldpath, char *newpath );
 
 const char*  ExtractFileName( const char *path );
 
 const char*  ExtractFileExtension( const char *filename );
 
-
-bool    	 dexists( const char *path );
+bool    	   dexists( const char *path );
 
 
 /* STDIN
 ========*/
 
-void   sgets(char* str, int n);
+void   			 sgets(char* str, int n);
 
-bool   PromptYesOrNo(const char *question);
+bool   			 PromptYesOrNo(const char *question);
 
 
 /* STDOUT
