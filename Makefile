@@ -5,7 +5,7 @@ EMAR = emar
 CFLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11
 EMCC_FLAGS = -Iinclude -D_GNU_SOURCE -Wall -Wextra -std=c11 -pthread -I/usr/local/include 
 SRC_DIR = src
-INC_DIR = include
+INC_DIR = include/*
 OBJ_DIR = obj
 BIN_DIR = bin
 LIB_DIR = lib
