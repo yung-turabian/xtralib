@@ -445,6 +445,10 @@ size_t reisMemGet(void *ptr);
 size_t reisFree(void *ptr);
 size_t reisMemGetAll();
 
+/* SORTS */
+void reisInsertionSort( int arr[], int len );
+void reisMergeSort( int arr[], int len );
+
 #ifdef __cplusplus
 }
 #endif

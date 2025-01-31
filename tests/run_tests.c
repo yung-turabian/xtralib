@@ -218,6 +218,16 @@ UTEST(reisMemory, HeapCheck)
 		ASSERT_EQ(0, (int)reisMemGetAll());
 }
 
+UTEST(reisArray, SortIntArray) {
+		int arr[5] = {2,3,5,6,3};
+		int correct[5] = {2,3,3,5,6};
+		reisInsertionSort( arr, 5 );
+		
+		for ( int i = 0; i < 5; i ++ ) {
+				ASSERT_EQ(correct[i], arr[i]);
+		}
+}
+
 #if defined(RAYLIB)
 
 UTEST(DrawDashedLine, reisRaylib)
