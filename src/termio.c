@@ -1,9 +1,5 @@
-
-
 // Reads ANSII code arrow keys
-int
-read_key(char* buf, int k)
-{
+int read_key( char* buf, int k ){
 		if(buf[k] == '\033' && buf[k + 1] == '[') {
 				switch(buf[k + 2]) {
 						case 'A': return 1; // up

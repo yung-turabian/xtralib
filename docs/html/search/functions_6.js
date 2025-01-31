@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['triedelete_0',['TrieDelete',['../trie_8h.html#aff1ec8b36f6dbaa2978e673d085d5631',1,'TrieDelete(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#aff1ec8b36f6dbaa2978e673d085d5631',1,'TrieDelete(TrieNode *root, wchar_t *word):&#160;trie.c']]],
-  ['trieinsert_1',['TrieInsert',['../trie_8h.html#a882a72e8b84e2c9e468f002c0f751b10',1,'TrieInsert(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#a882a72e8b84e2c9e468f002c0f751b10',1,'TrieInsert(TrieNode *root, wchar_t *word):&#160;trie.c']]],
-  ['triesearch_2',['TrieSearch',['../trie_8h.html#aba3e1be755d01462d2b5026c2f6b5b0e',1,'TrieSearch(TrieNode *root, wchar_t *word):&#160;trie.c'],['../trie_8c.html#aba3e1be755d01462d2b5026c2f6b5b0e',1,'TrieSearch(TrieNode *root, wchar_t *word):&#160;trie.c']]]
+  ['sgets_0',['sgets',['../reis_8h.html#aee3479c2c0ec4f6b36f092b1e2ff57d5',1,'sgets(char *str, int n):&#160;io.c'],['../io_8c.html#aee3479c2c0ec4f6b36f092b1e2ff57d5',1,'sgets(char *str, int n):&#160;io.c']]],
+  ['strchrn_1',['strchrn',['../reis_8h.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c'],['../string_8c.html#a6d91c9609b5e95580c9fd884e7a23bc4',1,'strchrn(const char *string, char ch):&#160;string.c']]],
+  ['strcov_2',['strcov',['../reis_8h.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c'],['../string_8c.html#a56e23cb7a1cfc951900bd5e308e935ce',1,'strcov(char *str, const char *charset):&#160;string.c']]],
+  ['strdupl_3',['strdupl',['../reis_8h.html#a1227deed9d576d6bdf8af2bf127739a1',1,'strdupl(const char *str):&#160;string.c'],['../string_8c.html#a00591099bc4ef0b6cb194d350c0bc64d',1,'strdupl(const char *str):&#160;string.c']]],
+  ['strisdigit_4',['strisdigit',['../reis_8h.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c'],['../string_8c.html#a583aa9a4c4d67c1cda65160292bbf679',1,'strisdigit(char *str):&#160;string.c']]],
+  ['strpcat_5',['strpcat',['../reis_8h.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c'],['../string_8c.html#a623e21af92815202b2bd389d3da5424d',1,'strpcat(char *dest, const char *src, size_t pos):&#160;string.c']]],
+  ['strset_6',['strset',['../reis_8h.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c'],['../string_8c.html#aabc9abf2767d06d48a6b56dd7bf4e127',1,'strset(const char *string, const char *charset):&#160;string.c']]]
 ];

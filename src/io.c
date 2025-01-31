@@ -7,7 +7,9 @@
  * @copyright BSD-3-Clause
  */
 
-#include <reis/io.h>
+#include <reis.h>
+#include <errno.h>
+#include <stdarg.h>
 
 /* FILE HANDLING
 =================*/

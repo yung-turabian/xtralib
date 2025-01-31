@@ -2,12 +2,9 @@
 
 #include <signal.h>
 
-#include <reis/string.h>
+#define REISHASH_ABBR
+#include <reis.h>
 
-#include <reis/memory.h>
-
-#include <reis/trie.h>
-#include <reis/io.h>
 #include <pthread.h>
 #include <reis/raylib.h>
 
@@ -133,13 +130,10 @@ UTEST(reisMemory, REALLOC)
 		FREE(y);
 }
 
-#define REISHASH_ABBR
-#include <reis/hash.h>
-
 UTEST(HashTable, reisHash)
 {
 
-    hashtable_t *tab = HT_Init();
+    hashtable_t *tab = HT_New();
     int *x = (int*)MALLOC(sizeof(int));
     *x = 10;
 
@@ -157,7 +151,7 @@ UTEST(HashTable, reisHash)
 
     ASSERT_STREQ( "sda", ret );
 
-    HT_Terminate( tab );
+    HT_Del( tab );
 
     FREE( x );
 }
@@ -221,7 +215,7 @@ UTEST(reisString, wcspres)
 
 UTEST(reisMemory, HeapCheck)
 {
-		ASSERT_EQ(0, (int)mget_all());
+		ASSERT_EQ(0, (int)reisMemGetAll());
 }
 
 #if defined(RAYLIB)

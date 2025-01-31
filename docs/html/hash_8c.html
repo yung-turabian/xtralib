@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>reislib: /home/hendog4eva/Dev/reislib/src/hash.c File Reference</title>
+<title>reislib: /home/hendog4eva/Development/reislib/src/hash.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,18 +97,17 @@ $(function(){ initResizable(false); });
 
 <p>HashTable data structure and related functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;reis/hash.h&gt;</code><br />
-<code>#include &lt;reis/memory.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="reis_8h_source.html">../include/reis.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a60dc89970e1cb2a612b0547893ba3a32" id="r_a60dc89970e1cb2a612b0547893ba3a32"><td class="memItemLeft" align="right" valign="top"><a id="a60dc89970e1cb2a612b0547893ba3a32" name="a60dc89970e1cb2a612b0547893ba3a32"></a>
-<a class="el" href="structhashtable__t.html">hashtable_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_Init</b> (void)</td></tr>
-<tr class="separator:a60dc89970e1cb2a612b0547893ba3a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50398928d5bdd5e05cfcde78a94e5a42" id="r_a50398928d5bdd5e05cfcde78a94e5a42"><td class="memItemLeft" align="right" valign="top"><a id="a50398928d5bdd5e05cfcde78a94e5a42" name="a50398928d5bdd5e05cfcde78a94e5a42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_Terminate</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
-<tr class="separator:a50398928d5bdd5e05cfcde78a94e5a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a16f0a8665d9a4f49452dc2cb456170" id="r_a1a16f0a8665d9a4f49452dc2cb456170"><td class="memItemLeft" align="right" valign="top"><a id="a1a16f0a8665d9a4f49452dc2cb456170" name="a1a16f0a8665d9a4f49452dc2cb456170"></a>
+<a class="el" href="structhashtable__t.html">hashtable_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>reisNewHashTable</b> (void)</td></tr>
+<tr class="separator:a1a16f0a8665d9a4f49452dc2cb456170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c14fe9db42f89f322bce23294c2ec3b" id="r_a4c14fe9db42f89f322bce23294c2ec3b"><td class="memItemLeft" align="right" valign="top"><a id="a4c14fe9db42f89f322bce23294c2ec3b" name="a4c14fe9db42f89f322bce23294c2ec3b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reisDelHashTable</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
+<tr class="separator:a4c14fe9db42f89f322bce23294c2ec3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27612c7eb29fd55528d31d4c658a5535" id="r_a27612c7eb29fd55528d31d4c658a5535"><td class="memItemLeft" align="right" valign="top"><a id="a27612c7eb29fd55528d31d4c658a5535" name="a27612c7eb29fd55528d31d4c658a5535"></a>
 void *&#160;</td><td class="memItemRight" valign="bottom"><b>HashTableGet_str</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table, const char *key)</td></tr>
 <tr class="separator:a27612c7eb29fd55528d31d4c658a5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,15 +120,15 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>HashTableSet_
 <tr class="memitem:a3a8bec78844017876720a458671f44be" id="r_a3a8bec78844017876720a458671f44be"><td class="memItemLeft" align="right" valign="top"><a id="a3a8bec78844017876720a458671f44be" name="a3a8bec78844017876720a458671f44be"></a>
 const wchar_t *&#160;</td><td class="memItemRight" valign="bottom"><b>HashTableSet_wcs</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table, const wchar_t *key, void *value)</td></tr>
 <tr class="separator:a3a8bec78844017876720a458671f44be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee79100c03e6f2167d92536753328c4d" id="r_aee79100c03e6f2167d92536753328c4d"><td class="memItemLeft" align="right" valign="top"><a id="aee79100c03e6f2167d92536753328c4d" name="aee79100c03e6f2167d92536753328c4d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_Length</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
-<tr class="separator:aee79100c03e6f2167d92536753328c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95f27c8497491dde95b67427364f88b2" id="r_a95f27c8497491dde95b67427364f88b2"><td class="memItemLeft" align="right" valign="top"><a id="a95f27c8497491dde95b67427364f88b2" name="a95f27c8497491dde95b67427364f88b2"></a>
-<a class="el" href="structhashtable__iterator__t.html">hashtable_iterator_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_IteratorInit</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
-<tr class="separator:a95f27c8497491dde95b67427364f88b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a102c41770a8fdf3c540490c24059ec7d" id="r_a102c41770a8fdf3c540490c24059ec7d"><td class="memItemLeft" align="right" valign="top"><a id="a102c41770a8fdf3c540490c24059ec7d" name="a102c41770a8fdf3c540490c24059ec7d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_Next</b> (<a class="el" href="structhashtable__iterator__t.html">hashtable_iterator_t</a> it)</td></tr>
-<tr class="separator:a102c41770a8fdf3c540490c24059ec7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39bc3a5145a909130a946c8ef28edf09" id="r_a39bc3a5145a909130a946c8ef28edf09"><td class="memItemLeft" align="right" valign="top"><a id="a39bc3a5145a909130a946c8ef28edf09" name="a39bc3a5145a909130a946c8ef28edf09"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>reisHashTableLength</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
+<tr class="separator:a39bc3a5145a909130a946c8ef28edf09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefad8ff67457a1db88f3f7b5bde4833f" id="r_aefad8ff67457a1db88f3f7b5bde4833f"><td class="memItemLeft" align="right" valign="top"><a id="aefad8ff67457a1db88f3f7b5bde4833f" name="aefad8ff67457a1db88f3f7b5bde4833f"></a>
+<a class="el" href="structhashtable__iterator__t.html">hashtable_iterator_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>reisNewHashTableIterator</b> (<a class="el" href="structhashtable__t.html">hashtable_t</a> *table)</td></tr>
+<tr class="separator:aefad8ff67457a1db88f3f7b5bde4833f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad668af0da63b7738d343c22ebcd5829b" id="r_ad668af0da63b7738d343c22ebcd5829b"><td class="memItemLeft" align="right" valign="top"><a id="ad668af0da63b7738d343c22ebcd5829b" name="ad668af0da63b7738d343c22ebcd5829b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>reisHashTableNext</b> (<a class="el" href="structhashtable__iterator__t.html">hashtable_iterator_t</a> it)</td></tr>
+<tr class="separator:ad668af0da63b7738d343c22ebcd5829b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>HashTable data structure and related functions. </p>
@@ -139,7 +138,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>HashTable_Next</b> (<
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 22 2025 for reislib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+Generated on Fri Jan 31 2025 for reislib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
 </div><!-- doc-content -->
 </body>

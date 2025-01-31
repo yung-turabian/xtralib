@@ -1,4 +1,4 @@
-#include <reis/unix.h>
+#include "../include/reis.h"
 
 static int CloseNonStdFds( void ) {
     struct rlimit rlim;
@@ -51,7 +51,7 @@ static int CreatePIDFile( const char *pid_file ) {
     return 0;
 }
 
-int Daemonize( const char *name, char *path, int flags ) {
+int reisDaemonize( const char *name, char *path, int flags ) {
     int rc;
     int maxfd, fd;
     pid_t pid;

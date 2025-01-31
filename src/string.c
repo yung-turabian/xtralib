@@ -7,9 +7,7 @@
  * @copyright BSD-3-Clause
  */
 
-#include <reis/string.h>
-#include <reis/memory.h>
-
+#include <reis.h>
 
 /**
  * @brief Implmentation of 'strdup,' using my MALLOC.
